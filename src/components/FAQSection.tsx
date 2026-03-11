@@ -42,15 +42,15 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
+        className="w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3.5 sm:py-4 text-left"
       >
-        <span className="font-display font-semibold text-sm md:text-base text-foreground">{q}</span>
+        <span className="font-display font-semibold text-xs sm:text-sm md:text-base text-foreground">{q}</span>
         <motion.div
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
           className="shrink-0"
         >
-          <ChevronDown className="w-5 h-5 text-primary" />
+          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
         </motion.div>
       </button>
       <AnimatePresence initial={false}>
@@ -62,7 +62,7 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">{a}</p>
+            <p className="px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-muted-foreground leading-relaxed">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -85,40 +85,40 @@ const FAQSection = () => {
     );
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-background">
-      <div className="container max-w-3xl">
+    <section id="faq" className="py-16 sm:py-20 md:py-28 bg-background">
+      <div className="container max-w-3xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-8 sm:mb-10"
         >
           <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">FAQ</span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mt-2 mb-4">Got Questions?</h2>
-          <p className="text-muted-foreground max-w-md mx-auto">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4">Got Questions?</h2>
+          <p className="text-muted-foreground max-w-md mx-auto text-sm sm:text-base">
             Find quick answers below, or WhatsApp us for anything else.
           </p>
         </motion.div>
 
         {/* Search */}
-        <div className="relative mb-8">
+        <div className="relative mb-6 sm:mb-8">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
             placeholder="Search questions..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-10 bg-card border-border"
+            className="pl-10 bg-card border-border h-11 sm:h-10"
           />
         </div>
 
         {/* Category tabs */}
         {!search && (
-          <div className="flex gap-2 mb-8 flex-wrap">
+          <div className="flex gap-2 mb-6 sm:mb-8 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap scrollbar-hide">
             {faqs.map((c) => (
               <button
                 key={c.category}
                 onClick={() => setActiveCategory(c.category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap shrink-0 ${
                   activeCategory === c.category
                     ? "bg-primary text-primary-foreground shadow-md"
                     : "bg-muted text-muted-foreground hover:text-foreground"
@@ -131,7 +131,7 @@ const FAQSection = () => {
         )}
 
         {/* FAQ items */}
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3">
           <AnimatePresence mode="wait">
             {filtered.length > 0 ? (
               filtered.map((item, i) => (
@@ -148,7 +148,7 @@ const FAQSection = () => {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-center text-muted-foreground py-8"
+                className="text-center text-muted-foreground py-8 text-sm"
               >
                 No results found. Try a different search or ask us directly!
               </motion.p>
@@ -161,10 +161,10 @@ const FAQSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-10 sm:mt-12"
         >
           <p className="text-muted-foreground text-sm mb-4">Still have questions?</p>
-          <Button asChild className="font-display font-semibold gap-2">
+          <Button asChild className="font-display font-semibold gap-2 h-11 sm:h-10">
             <a
               href="https://wa.me/27716865256?text=Hi%20JR's%20Device%20Care!%20I%20have%20a%20question."
               target="_blank"

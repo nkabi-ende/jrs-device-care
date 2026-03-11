@@ -36,24 +36,24 @@ const tiers = [
 ];
 
 const PricingSection = () => (
-  <section id="pricing" className="py-20 md:py-28 bg-dark-section">
-    <div className="container">
+  <section id="pricing" className="py-16 sm:py-20 md:py-28 bg-dark-section">
+    <div className="container px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-14"
+        className="text-center mb-10 sm:mb-14"
       >
         <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">Transparent Pricing</span>
-        <h2 className="font-display text-3xl md:text-5xl font-bold mt-2 mb-4 text-dark-section-foreground">
+        <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4 text-dark-section-foreground">
           Repair Pricing Guide
         </h2>
-        <p className="text-dark-section-foreground/60 max-w-xl mx-auto">
+        <p className="text-dark-section-foreground/60 max-w-xl mx-auto text-sm sm:text-base">
           Honest, upfront pricing. No hidden fees. Get an exact quote on WhatsApp.
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto mb-8">
         {tiers.map((tier, i) => (
           <motion.div
             key={tier.title}
@@ -61,9 +61,9 @@ const PricingSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.15 }}
-            className={`rounded-2xl p-6 md:p-8 border transition-all ${
+            className={`rounded-2xl p-5 sm:p-6 md:p-8 border transition-all ${
               tier.highlight
-                ? "bg-primary/10 border-primary/40 shadow-xl shadow-primary/10 scale-[1.02]"
+                ? "bg-primary/10 border-primary/40 shadow-xl shadow-primary/10 md:scale-[1.02] order-first sm:order-none"
                 : "bg-hero-bg/50 border-dark-section-foreground/10"
             }`}
           >
@@ -72,21 +72,21 @@ const PricingSection = () => (
                 <Star className="w-3 h-3 fill-primary" /> Most Popular
               </div>
             )}
-            <h3 className="font-display font-bold text-xl text-dark-section-foreground mb-1">{tier.title}</h3>
-            <p className="text-dark-section-foreground/50 text-sm mb-6">{tier.subtitle}</p>
+            <h3 className="font-display font-bold text-lg sm:text-xl text-dark-section-foreground mb-1">{tier.title}</h3>
+            <p className="text-dark-section-foreground/50 text-sm mb-5 sm:mb-6">{tier.subtitle}</p>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {tier.items.map((item) => (
-                <div key={item.service} className="flex justify-between items-center">
+                <div key={item.service} className="flex justify-between items-center gap-2">
                   <span className="text-dark-section-foreground/80 text-sm">{item.service}</span>
-                  <span className="font-display font-bold text-primary text-sm">{item.price}</span>
+                  <span className="font-display font-bold text-primary text-sm whitespace-nowrap">{item.price}</span>
                 </div>
               ))}
             </div>
 
             <Button
               asChild
-              className={`w-full mt-8 font-display font-semibold ${
+              className={`w-full mt-6 sm:mt-8 font-display font-semibold ${
                 tier.highlight ? "" : "bg-primary/20 text-primary hover:bg-primary/30"
               }`}
               variant={tier.highlight ? "default" : "ghost"}
@@ -104,7 +104,7 @@ const PricingSection = () => (
         ))}
       </div>
 
-      <p className="text-center text-dark-section-foreground/40 text-sm italic">
+      <p className="text-center text-dark-section-foreground/40 text-xs sm:text-sm italic px-4">
         * Pricing varies by specific model and generation. Contact us for an exact quote.
       </p>
     </div>
