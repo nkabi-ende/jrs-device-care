@@ -18,6 +18,7 @@ const Index = () => (
     <PricingSection />
     <IntakeForm />
     <WhyChooseUs />
+    <FAQSection />
     <Footer />
     <FloatingWhatsApp />
   </div>
