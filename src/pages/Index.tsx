@@ -5,6 +5,7 @@ import RepairGallery from "@/components/RepairGallery";
 import PricingSection from "@/components/PricingSection";
 import IntakeForm from "@/components/IntakeForm";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
