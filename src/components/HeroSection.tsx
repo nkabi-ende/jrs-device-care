@@ -78,7 +78,7 @@ const HeroSection = () => {
               asChild
               variant="outline"
               size="lg"
-              className="font-display font-semibold text-base border-hero-foreground/20 text-hero-foreground hover:bg-hero-foreground/10 hover:text-hero-foreground"
+              className="font-display font-semibold text-base border-primary/40 text-primary bg-primary/10 hover:bg-primary/20 hover:text-primary"
             >
               <a href="#book">Book a Repair</a>
             </Button>
