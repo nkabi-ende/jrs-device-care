@@ -2,11 +2,11 @@ import { Smartphone, Phone, MapPin, MessageCircle, Instagram } from "lucide-reac
 import { Button } from "@/components/ui/button";
 
 const Footer = () => (
-  <footer id="contact" className="bg-hero-bg py-16">
-    <div className="container">
-      <div className="grid md:grid-cols-3 gap-10 mb-12">
+  <footer id="contact" className="bg-hero-bg py-12 sm:py-16">
+    <div className="container px-4 sm:px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 mb-10 sm:mb-12">
         {/* Brand */}
-        <div>
+        <div className="sm:col-span-2 md:col-span-1">
           <div className="flex items-center gap-2 mb-4">
             <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
               <Smartphone className="w-5 h-5 text-primary-foreground" />
@@ -15,7 +15,7 @@ const Footer = () => (
               JR's <span className="text-primary">Device Care</span>
             </span>
           </div>
-          <p className="text-hero-foreground/50 text-sm">
+          <p className="text-hero-foreground/50 text-sm leading-relaxed">
             Your trusted device repair specialists in Durban. Fast, affordable, and reliable repairs for all your devices.
           </p>
         </div>
@@ -25,13 +25,13 @@ const Footer = () => (
           <h4 className="font-display font-bold text-hero-foreground mb-4">Get in Touch</h4>
           <div className="space-y-3">
             <a href="tel:0716865256" className="flex items-center gap-3 text-hero-foreground/60 hover:text-primary transition-colors text-sm">
-              <Phone className="w-4 h-4" /> 071 686 5256
+              <Phone className="w-4 h-4 shrink-0" /> 071 686 5256
             </a>
             <div className="flex items-center gap-3 text-hero-foreground/60 text-sm">
-              <MapPin className="w-4 h-4" /> Newlands West & Surrounds, Durban
+              <MapPin className="w-4 h-4 shrink-0" /> Newlands West & Surrounds, Durban
             </div>
             <a href="https://instagram.com/jrsdevicecare" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-hero-foreground/60 hover:text-primary transition-colors text-sm">
-              <Instagram className="w-4 h-4" /> @jrsdevicecare
+              <Instagram className="w-4 h-4 shrink-0" /> @jrsdevicecare
             </a>
           </div>
         </div>

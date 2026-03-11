@@ -15,19 +15,19 @@ const testimonials = [
 ];
 
 const WhyChooseUs = () => (
-  <section id="why-us" className="py-20 md:py-28 bg-muted/50">
-    <div className="container">
+  <section id="why-us" className="py-16 sm:py-20 md:py-28 bg-muted/50">
+    <div className="container px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-14"
+        className="text-center mb-10 sm:mb-14"
       >
         <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">Why Us</span>
-        <h2 className="font-display text-3xl md:text-5xl font-bold mt-2 mb-4">Why Choose JR's Device Care</h2>
+        <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-4">Why Choose JR's Device Care</h2>
       </motion.div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
         {points.map((p, i) => (
           <motion.div
             key={p.title}
@@ -37,17 +37,17 @@ const WhyChooseUs = () => (
             transition={{ delay: i * 0.1 }}
             className="text-center"
           >
-            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-              <p.icon className="w-7 h-7 text-primary" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <p.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
             </div>
-            <h3 className="font-display font-bold text-lg mb-2">{p.title}</h3>
-            <p className="text-muted-foreground text-sm">{p.desc}</p>
+            <h3 className="font-display font-bold text-sm sm:text-lg mb-1 sm:mb-2">{p.title}</h3>
+            <p className="text-muted-foreground text-xs sm:text-sm">{p.desc}</p>
           </motion.div>
         ))}
       </div>
 
       {/* Testimonials */}
-      <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
         {testimonials.map((t, i) => (
           <motion.div
             key={t.name}
@@ -55,7 +55,7 @@ const WhyChooseUs = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-card border border-border rounded-xl p-6"
+            className="bg-card border border-border rounded-xl p-5 sm:p-6"
           >
             <Quote className="w-5 h-5 text-primary/40 mb-3" />
             <p className="text-sm text-foreground/80 mb-4">{t.text}</p>

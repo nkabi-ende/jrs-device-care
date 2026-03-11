@@ -71,43 +71,43 @@ const IntakeForm = () => {
   };
 
   return (
-    <section id="book" className="py-20 md:py-28 bg-background">
-      <div className="container max-w-2xl">
+    <section id="book" className="py-16 sm:py-20 md:py-28 bg-background">
+      <div className="container max-w-2xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-8 sm:mb-10"
         >
           <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">Quick & Easy</span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mt-2 mb-4">Book Your Repair</h2>
-          <p className="text-muted-foreground">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4">Book Your Repair</h2>
+          <p className="text-muted-foreground text-sm sm:text-base">
             Tell us about your device and we'll get back to you on WhatsApp with a quote.
           </p>
         </motion.div>
 
         {/* Trust badges */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
-          <div className="flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-2">
-            <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium">Free Diagnostics Quote</span>
+        <div className="flex flex-col xs:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+          <div className="flex items-center justify-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-2">
+            <Shield className="w-4 h-4 text-primary shrink-0" />
+            <span className="text-xs sm:text-sm font-medium">Free Diagnostics Quote</span>
           </div>
-          <div className="flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-2">
-            <Clock className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium">Same-Day Repairs Available</span>
+          <div className="flex items-center justify-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-2">
+            <Clock className="w-4 h-4 text-primary shrink-0" />
+            <span className="text-xs sm:text-sm font-medium">Same-Day Repairs Available</span>
           </div>
         </div>
 
         {/* Progress */}
-        <Progress value={progress} className="h-2 mb-8 bg-muted" />
+        <Progress value={progress} className="h-1.5 sm:h-2 mb-6 sm:mb-8 bg-muted" />
 
         {/* Form card */}
-        <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-lg">
+        <div className="bg-card border border-border rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
           <AnimatePresence mode="wait">
             {step === 1 && (
               <motion.div key="step1" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
-                <h3 className="font-display font-bold text-lg mb-1">Your Details</h3>
-                <p className="text-muted-foreground text-sm mb-6">Step 1 of 3</p>
+                <h3 className="font-display font-bold text-base sm:text-lg mb-1">Your Details</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm mb-5 sm:mb-6">Step 1 of 3</p>
                 <div className="space-y-4">
                   <div>
                     <label className="text-sm font-medium mb-1.5 block">Name</label>
@@ -116,6 +116,7 @@ const IntakeForm = () => {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       maxLength={100}
+                      className="h-11 sm:h-10"
                     />
                   </div>
                   <div>
@@ -125,6 +126,8 @@ const IntakeForm = () => {
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       maxLength={20}
+                      type="tel"
+                      className="h-11 sm:h-10"
                     />
                   </div>
                 </div>
@@ -133,8 +136,8 @@ const IntakeForm = () => {
 
             {step === 2 && (
               <motion.div key="step2" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
-                <h3 className="font-display font-bold text-lg mb-1">Device Info</h3>
-                <p className="text-muted-foreground text-sm mb-6">Step 2 of 3</p>
+                <h3 className="font-display font-bold text-base sm:text-lg mb-1">Device Info</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm mb-5 sm:mb-6">Step 2 of 3</p>
                 <div className="space-y-4">
                   <div>
                     <label className="text-sm font-medium mb-2 block">Device Type</label>
@@ -144,7 +147,7 @@ const IntakeForm = () => {
                           key={type}
                           type="button"
                           onClick={() => setForm({ ...form, deviceType: type })}
-                          className={`p-3 rounded-lg border text-sm font-medium transition-all ${
+                          className={`p-3 sm:p-3 rounded-lg border text-sm font-medium transition-all active:scale-95 ${
                             form.deviceType === type
                               ? "border-primary bg-primary/10 text-primary"
                               : "border-border hover:border-primary/30"
@@ -158,10 +161,11 @@ const IntakeForm = () => {
                   <div>
                     <label className="text-sm font-medium mb-1.5 block">Brand & Model (optional)</label>
                     <Input
-                      placeholder="e.g. Samsung Galaxy S24, iPhone 15 Pro"
+                      placeholder="e.g. Samsung Galaxy S24"
                       value={form.brandModel}
                       onChange={(e) => setForm({ ...form, brandModel: e.target.value })}
                       maxLength={100}
+                      className="h-11 sm:h-10"
                     />
                   </div>
                 </div>
@@ -170,14 +174,14 @@ const IntakeForm = () => {
 
             {step === 3 && (
               <motion.div key="step3" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
-                <h3 className="font-display font-bold text-lg mb-1">What's the Issue?</h3>
-                <p className="text-muted-foreground text-sm mb-6">Step 3 of 3</p>
+                <h3 className="font-display font-bold text-base sm:text-lg mb-1">What's the Issue?</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm mb-5 sm:mb-6">Step 3 of 3</p>
                 <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3">
                     {ISSUES.map((issue) => (
                       <label
                         key={issue}
-                        className={`flex items-center gap-2 p-3 rounded-lg border text-sm cursor-pointer transition-all ${
+                        className={`flex items-center gap-2 p-3 rounded-lg border text-xs sm:text-sm cursor-pointer transition-all active:scale-95 ${
                           form.issues.includes(issue)
                             ? "border-primary bg-primary/10"
                             : "border-border hover:border-primary/30"
@@ -207,9 +211,9 @@ const IntakeForm = () => {
           </AnimatePresence>
 
           {/* Navigation */}
-          <div className="flex justify-between mt-8">
+          <div className="flex justify-between mt-6 sm:mt-8 gap-3">
             {step > 1 ? (
-              <Button variant="outline" onClick={() => setStep(step - 1)}>
+              <Button variant="outline" onClick={() => setStep(step - 1)} className="h-11 sm:h-10">
                 <ArrowLeft className="w-4 h-4 mr-1" /> Back
               </Button>
             ) : (
@@ -217,11 +221,11 @@ const IntakeForm = () => {
             )}
 
             {step < 3 ? (
-              <Button onClick={() => setStep(step + 1)} disabled={!canNext()}>
+              <Button onClick={() => setStep(step + 1)} disabled={!canNext()} className="h-11 sm:h-10">
                 Next <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             ) : (
-              <Button onClick={handleSubmit} disabled={!canNext()} className="animate-pulse-glow">
+              <Button onClick={handleSubmit} disabled={!canNext()} className="animate-pulse-glow h-11 sm:h-10">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Send via WhatsApp
               </Button>
