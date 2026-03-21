@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageCircle, MapPin, Wrench, Settings, Activity } from "lucide-react";
+import { MessageCircle, MapPin, Wrench, Settings, Activity, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -56,7 +56,7 @@ const HeroSection = () => {
 
           <p className="text-hero-foreground/60 text-base sm:text-lg md:text-xl max-w-xl mb-6 sm:mb-8 font-body leading-relaxed">
             Expert repairs for phones, tablets, laptops & all electronics.
-            Fast turnaround. Quality parts. Affordable pricing.
+            Plus: train to become a certified technician at our Academy.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -80,7 +80,10 @@ const HeroSection = () => {
               size="lg"
               className="font-display font-semibold text-sm sm:text-base border-primary/40 text-primary bg-primary/10 hover:bg-primary/20 hover:text-primary w-full sm:w-auto"
             >
-              <a href="#book">Book a Repair</a>
+              <a href="#academy">
+                <GraduationCap className="w-5 h-5 mr-2" />
+                Join the Academy
+              </a>
             </Button>
           </div>
         </motion.div>
