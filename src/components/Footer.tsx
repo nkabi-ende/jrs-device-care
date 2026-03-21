@@ -15,9 +15,12 @@ const Footer = () => (
               JR's <span className="text-primary">Device Care</span>
             </span>
           </div>
-          <p className="text-hero-foreground/50 text-sm leading-relaxed">
+          <p className="text-hero-foreground/50 text-sm leading-relaxed mb-3">
             Your trusted device repair specialists in Durban. Fast, affordable, and reliable repairs for all your devices.
           </p>
+          <a href="#academy" className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold hover:underline">
+            🎓 Device Care Academy — Now Enrolling
+          </a>
         </div>
 
         {/* Contact */}

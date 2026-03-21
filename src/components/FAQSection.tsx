@@ -30,6 +30,15 @@ const faqs = [
       { q: "What if my device can't be repaired?", a: "If we determine your device isn't repairable, there's no charge. We'll explain what went wrong and advise you on your best options moving forward." },
     ],
   },
+  {
+    category: "Academy",
+    items: [
+      { q: "Who is the Academy course for?", a: "The course is designed for anyone wanting to enter the device repair industry — from complete beginners to those with some DIY experience looking to formalise their skills. No prior qualifications needed." },
+      { q: "What does the R5,000 course fee include?", a: "The fee covers 2–3 weeks of intensive hands-on training, all learning materials, a starter toolkit, practice devices, and a certificate of completion. There are no hidden costs." },
+      { q: "When does the next intake start?", a: "The next intake is in April 2026. Class size is limited to 15 students to ensure personalised attention. WhatsApp us to reserve your seat before it fills up." },
+      { q: "Will I be able to start working after the course?", a: "Absolutely. The curriculum is designed to make you job-ready. You'll learn practical, in-demand skills — screen replacements, soldering, diagnostics — and receive post-course mentorship to help you launch." },
+    ],
+  },
 ];
 
 const FAQItem = ({ q, a }: { q: string; a: string }) => {

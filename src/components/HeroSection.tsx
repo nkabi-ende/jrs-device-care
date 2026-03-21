@@ -37,6 +37,7 @@ const HeroSection = () => {
               { icon: Wrench, label: "repairs" },
               { icon: Settings, label: "maintenance" },
               { icon: Activity, label: "diagnostics" },
+              { icon: GraduationCap, label: "academy" },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
@@ -49,7 +50,7 @@ const HeroSection = () => {
                 <span className="text-hero-foreground/70 text-xs sm:text-sm md:text-base font-medium uppercase tracking-wider">
                   {item.label}
                 </span>
-                {i < 2 && <span className="text-hero-foreground/30 ml-1 sm:ml-2 hidden xs:inline">|</span>}
+                {i < 3 && <span className="text-hero-foreground/30 ml-1 sm:ml-2 hidden xs:inline">|</span>}
               </motion.div>
             ))}
           </div>
