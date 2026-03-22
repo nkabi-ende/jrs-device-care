@@ -8,35 +8,36 @@ const faqs = [
   {
     category: "Repairs",
     items: [
-      { q: "How long does a screen repair take?", a: "Most screen repairs are completed within 1–2 hours. For rarer models that require special parts, it may take up to 24 hours. We'll always give you an accurate time estimate before starting." },
-      { q: "Do you use original parts?", a: "We use high-quality OEM-compatible parts that match or exceed original specifications. For premium devices, we can source genuine parts on request — just let us know your preference." },
-      { q: "Is there a warranty on repairs?", a: "Yes! All repairs come with a 30-day warranty covering the specific part replaced and the labour. If anything goes wrong with the repair, bring it back and we'll sort it out — no extra charge." },
-      { q: "Can you fix water-damaged devices?", a: "We can! Water damage repair involves ultrasonic cleaning, component-level diagnostics, and replacing any corroded parts. Success rates depend on how quickly you bring it in — the sooner the better." },
+      { q: "How long does a screen repair take in Durban?", a: "Most screen repairs at our Newlands West workshop are completed within 1–2 hours. For rarer models that require special parts, it may take up to 24 hours. We'll always give you an accurate time estimate before starting." },
+      { q: "Do you use original parts for repairs?", a: "We use high-quality OEM-compatible parts that match or exceed original specifications. For premium devices, we can source genuine parts on request — just let us know your preference." },
+      { q: "Is there a warranty on device repairs?", a: "Yes! All repairs come with a 30-day warranty covering the specific part replaced and the labour. If anything goes wrong with the repair, bring it back to our Durban workshop and we'll sort it out — no extra charge." },
+      { q: "Can you fix water-damaged phones and tablets?", a: "We can! Water damage repair involves ultrasonic cleaning, component-level diagnostics, and replacing any corroded parts. Success rates depend on how quickly you bring it to our Newlands West location — the sooner the better." },
+      { q: "Do you repair laptops in Durban?", a: "Absolutely. We repair laptops of all brands — screen replacements, battery swaps, charging port fixes, overheating issues, and full diagnostics. Bring it to our Newlands West workshop or WhatsApp us for details." },
     ],
   },
   {
     category: "Pricing & Payment",
     items: [
-      { q: "How much does a repair cost?", a: "Pricing depends on the device model and the type of repair. Entry-level screen repairs start from R400, batteries from R350. Check our Pricing section for detailed ranges, or WhatsApp us your model for an exact quote." },
-      { q: "Do I need to pay upfront?", a: "No upfront payment required. We diagnose your device for free, give you a quote, and you only pay once the repair is complete and you're satisfied." },
+      { q: "How much does a phone repair cost in Durban?", a: "Pricing depends on the device model and the type of repair. Entry-level screen repairs start from R400, batteries from R350. Check our Pricing section for detailed ranges, or WhatsApp us your model for an exact quote." },
+      { q: "Do I need to pay upfront for repairs?", a: "No upfront payment required. We diagnose your device for free at our Newlands West location, give you a quote, and you only pay once the repair is complete and you're satisfied." },
       { q: "What payment methods do you accept?", a: "We accept cash, EFT/bank transfer, and mobile payments. Whatever's most convenient for you." },
     ],
   },
   {
     category: "Process",
     items: [
-      { q: "Do I need to book an appointment?", a: "Walk-ins are welcome, but booking via WhatsApp helps us prepare the right parts in advance so your repair is faster. Just send us your device model and issue." },
-      { q: "Can you repair my device on-site?", a: "We primarily operate from our Newlands West location, but for bulk or corporate repairs, we can arrange collection and delivery in the Durban area." },
+      { q: "Do I need to book an appointment?", a: "Walk-ins are welcome at our Newlands West, Durban workshop, but booking via WhatsApp helps us prepare the right parts in advance so your repair is faster. Just send us your device model and issue." },
+      { q: "Do you offer device collection in Durban?", a: "We primarily operate from our Newlands West location, but for bulk or corporate repairs, we can arrange collection and delivery across the greater Durban area." },
       { q: "What if my device can't be repaired?", a: "If we determine your device isn't repairable, there's no charge. We'll explain what went wrong and advise you on your best options moving forward." },
     ],
   },
   {
     category: "Academy",
     items: [
-      { q: "Who is the Academy course for?", a: "The course is designed for anyone wanting to enter the device repair industry — from complete beginners to those with some DIY experience looking to formalise their skills. No prior qualifications needed." },
+      { q: "Who is the Academy course for?", a: "The course is designed for anyone wanting to enter the device repair industry in Durban and beyond — from complete beginners to those with some DIY experience looking to formalise their skills. No prior qualifications needed." },
       { q: "What does the R5,000 course fee include?", a: "The fee covers 2–3 weeks of intensive hands-on training, all learning materials, a starter toolkit, practice devices, and a certificate of completion. There are no hidden costs." },
-      { q: "When does the next intake start?", a: "The next intake is in April 2026. Class size is limited to 15 students to ensure personalised attention. WhatsApp us to reserve your seat before it fills up." },
-      { q: "Will I be able to start working after the course?", a: "Absolutely. The curriculum is designed to make you job-ready. You'll learn practical, in-demand skills — screen replacements, soldering, diagnostics — and receive post-course mentorship to help you launch." },
+      { q: "When does the next intake start?", a: "The next intake is in April 2026. Class size is limited to 20 students to ensure personalised attention. WhatsApp us to reserve your seat before it fills up." },
+      { q: "Will I be able to start working after the course?", a: "Absolutely. The curriculum is designed to make you job-ready for the Durban electronics repair market and beyond. You'll learn practical, in-demand skills — screen replacements, soldering, diagnostics — and receive post-course mentorship to help you launch." },
     ],
   },
 ];
@@ -103,13 +104,12 @@ const FAQSection = () => {
           className="text-center mb-8 sm:mb-10"
         >
           <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">FAQ</span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4">Got Questions?</h2>
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4">Device Repair Questions — Durban</h2>
           <p className="text-muted-foreground max-w-md mx-auto text-sm sm:text-base">
-            Find quick answers below, or WhatsApp us for anything else.
+            Find quick answers about phone, tablet &amp; laptop repairs in Durban, or WhatsApp us for anything else.
           </p>
         </motion.div>
 
-        {/* Search */}
         <div className="relative mb-6 sm:mb-8">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
@@ -120,7 +120,6 @@ const FAQSection = () => {
           />
         </div>
 
-        {/* Category tabs */}
         {!search && (
           <div className="flex gap-2 mb-6 sm:mb-8 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap scrollbar-hide">
             {faqs.map((c) => (
@@ -139,7 +138,6 @@ const FAQSection = () => {
           </div>
         )}
 
-        {/* FAQ items */}
         <div className="space-y-2 sm:space-y-3">
           <AnimatePresence mode="wait">
             {filtered.length > 0 ? (
@@ -165,7 +163,6 @@ const FAQSection = () => {
           </AnimatePresence>
         </div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

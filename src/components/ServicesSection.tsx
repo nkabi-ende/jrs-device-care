@@ -3,10 +3,10 @@ import { Smartphone, Tablet, Laptop, Monitor, Battery, Zap, Search, Wrench } fro
 import { Button } from "@/components/ui/button";
 
 const services = [
-  { icon: Monitor, title: "Screen Repairs", desc: "Cracked or damaged screens fixed with quality replacement parts." },
-  { icon: Battery, title: "Battery Replacement", desc: "Restore your device's battery life with genuine replacements." },
-  { icon: Zap, title: "Charging Faults", desc: "Diagnose and fix charging port and power delivery issues." },
-  { icon: Search, title: "Diagnostics & Repairs", desc: "Full device diagnostics to identify and resolve any issue." },
+  { icon: Monitor, title: "Screen Repairs", desc: "Cracked or damaged phone, tablet & laptop screens repaired in Durban with quality parts." },
+  { icon: Battery, title: "Battery Replacement", desc: "Restore your device's battery life — same-day battery replacements in Newlands West." },
+  { icon: Zap, title: "Charging Faults", desc: "Charging port and power delivery repairs for all devices in Durban." },
+  { icon: Search, title: "Diagnostics & Repairs", desc: "Full device diagnostics to identify and resolve any issue — affordable rates in Durban." },
 ];
 
 const devices = [
@@ -26,13 +26,12 @@ const ServicesSection = () => (
         className="text-center mb-10 sm:mb-14"
       >
         <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">What We Fix</span>
-        <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4">Our Services</h2>
+        <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4">Device Repair Services in Durban</h2>
         <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
-          From cracked screens to software issues — we handle it all with speed and precision.
+          From cracked screens to charging faults — expert phone, tablet &amp; laptop repairs in Newlands West, Durban.
         </p>
       </motion.div>
 
-      {/* Service cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-10 sm:mb-14">
         {services.map((s, i) => (
           <motion.div
@@ -55,7 +54,6 @@ const ServicesSection = () => (
         ))}
       </div>
 
-      {/* Device types */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

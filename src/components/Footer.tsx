@@ -5,7 +5,6 @@ const Footer = () => (
   <footer id="contact" className="bg-hero-bg py-12 sm:py-16">
     <div className="container px-4 sm:px-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 mb-10 sm:mb-12">
-        {/* Brand */}
         <div className="sm:col-span-2 md:col-span-1">
           <div className="flex items-center gap-2 mb-4">
             <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
@@ -16,14 +15,13 @@ const Footer = () => (
             </span>
           </div>
           <p className="text-hero-foreground/50 text-sm leading-relaxed mb-3">
-            Your trusted device repair specialists in Durban. Fast, affordable, and reliable repairs for all your devices.
+            Durban's trusted device repair specialists. Fast, affordable phone, tablet &amp; laptop repairs in Newlands West &amp; surrounds — plus technician training at our Academy.
           </p>
           <a href="#academy" className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold hover:underline">
             🎓 Device Care Academy — Now Enrolling
           </a>
         </div>
 
-        {/* Contact */}
         <div>
           <h4 className="font-display font-bold text-hero-foreground mb-4">Get in Touch</h4>
           <div className="space-y-3">
@@ -39,7 +37,6 @@ const Footer = () => (
           </div>
         </div>
 
-        {/* CTA */}
         <div>
           <h4 className="font-display font-bold text-hero-foreground mb-4">Ready to Repair?</h4>
           <p className="text-hero-foreground/50 text-sm mb-4">
@@ -60,7 +57,7 @@ const Footer = () => (
 
       <div className="border-t border-hero-foreground/10 pt-6 text-center">
         <p className="text-hero-foreground/30 text-xs">
-          © {new Date().getFullYear()} JR's Device Care. All rights reserved.
+          © {new Date().getFullYear()} JR's Device Care — Phone, Tablet &amp; Laptop Repairs in Durban, Newlands West. All rights reserved.
         </p>
       </div>
     </div>

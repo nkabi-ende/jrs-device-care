@@ -31,12 +31,11 @@ const IntakeForm = () => {
     brandModel: "",
     issues: [] as string[],
     notes: "",
-    // Academy fields
     experience: "",
     motivation: "",
   });
 
-  const totalSteps = formType === "repair" ? 3 : 3;
+  const totalSteps = 3;
   const progress = (step / totalSteps) * 100;
 
   const toggleIssue = (issue: string) => {
@@ -54,7 +53,6 @@ const IntakeForm = () => {
       if (step === 2) return form.deviceType.length > 0;
       return form.issues.length > 0;
     }
-    // Academy
     if (step === 2) return form.experience.length > 0;
     return true;
   };
@@ -119,11 +117,10 @@ const IntakeForm = () => {
           <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">Quick & Easy</span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4">Get Started</h2>
           <p className="text-muted-foreground text-sm sm:text-base">
-            Book a repair or apply for our Academy — we'll respond on WhatsApp.
+            Book a device repair in Durban or apply for our Academy — we'll respond on WhatsApp.
           </p>
         </motion.div>
 
-        {/* Form type toggle */}
         <div className="grid grid-cols-2 gap-3 mb-6 sm:mb-8">
           <button
             onClick={() => resetForm("repair")}
@@ -149,7 +146,6 @@ const IntakeForm = () => {
           </button>
         </div>
 
-        {/* Trust badges */}
         <div className="flex flex-col xs:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
           {formType === "repair" ? (
             <>
@@ -170,19 +166,16 @@ const IntakeForm = () => {
               </div>
               <div className="flex items-center justify-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-2">
                 <Shield className="w-4 h-4 text-primary shrink-0" />
-                <span className="text-xs sm:text-sm font-medium">Only 15 Seats Available</span>
+                <span className="text-xs sm:text-sm font-medium">Only 20 Seats Available</span>
               </div>
             </>
           )}
         </div>
 
-        {/* Progress */}
         <Progress value={progress} className="h-1.5 sm:h-2 mb-6 sm:mb-8 bg-muted" />
 
-        {/* Form card */}
         <div className="bg-card border border-border rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
           <AnimatePresence mode="wait">
-            {/* STEP 1 — shared: name & phone */}
             {step === 1 && (
               <motion.div key="step1" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
                 <h3 className="font-display font-bold text-base sm:text-lg mb-1">Your Details</h3>
@@ -206,7 +199,6 @@ const IntakeForm = () => {
               </motion.div>
             )}
 
-            {/* STEP 2 — repair: device info | academy: experience */}
             {step === 2 && formType === "repair" && (
               <motion.div key="step2-repair" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
                 <h3 className="font-display font-bold text-base sm:text-lg mb-1">Device Info</h3>
@@ -249,7 +241,6 @@ const IntakeForm = () => {
               </motion.div>
             )}
 
-            {/* STEP 3 — repair: issues | academy: motivation */}
             {step === 3 && formType === "repair" && (
               <motion.div key="step3-repair" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
                 <h3 className="font-display font-bold text-base sm:text-lg mb-1">What's the Issue?</h3>
@@ -297,7 +288,6 @@ const IntakeForm = () => {
             )}
           </AnimatePresence>
 
-          {/* Navigation */}
           <div className="flex justify-between mt-6 sm:mt-8 gap-3">
             {step > 1 ? (
               <Button variant="outline" onClick={() => setStep(step - 1)} className="h-11 sm:h-10">

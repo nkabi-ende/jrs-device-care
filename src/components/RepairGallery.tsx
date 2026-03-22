@@ -16,26 +16,26 @@ const repairs = [
   {
     before: before1,
     after: after1,
-    title: "iPhone Screen Repair",
-    description: "Shattered screen replaced with brand new display",
+    title: "iPhone Screen Repair in Durban",
+    description: "Shattered iPhone screen replaced with a brand new display",
   },
   {
     before: before2,
     after: after2,
-    title: "Battery Replacement",
-    description: "Swollen battery safely removed and replaced",
+    title: "Phone Battery Replacement",
+    description: "Swollen battery safely removed and replaced same-day in Newlands West",
   },
   {
     before: before3,
     after: after3,
-    title: "Laptop Screen Fix",
+    title: "Laptop Screen Repair Durban",
     description: "Cracked laptop display restored to perfect condition",
   },
   {
     before: before4,
     after: after4,
-    title: "Tablet Water Damage",
-    description: "Water-damaged tablet fully restored and functional",
+    title: "Tablet Water Damage Repair",
+    description: "Water-damaged tablet fully restored and functional in Durban",
   },
 ];
 
@@ -60,10 +60,10 @@ const RepairGallery = () => {
           className="text-center mb-12"
         >
           <h2 className="font-display text-3xl md:text-5xl font-bold text-dark-section-foreground mb-4">
-            Real <span className="text-primary">Repairs</span>, Real Results
+            Real <span className="text-primary">Repairs</span> in Durban
           </h2>
           <p className="text-dark-section-foreground/60 text-lg max-w-xl mx-auto">
-            Tap any image to see the before &amp; after transformation
+            See actual before &amp; after results from our Newlands West workshop
           </p>
         </motion.div>
 
@@ -82,10 +82,9 @@ const RepairGallery = () => {
               <div className="relative aspect-square rounded-xl overflow-hidden border border-primary/10">
                 <img
                   src={showAfter[index] ? repair.after : repair.before}
-                  alt={`${showAfter[index] ? "After" : "Before"} - ${repair.title}`}
+                  alt={`${showAfter[index] ? "After" : "Before"} — ${repair.title}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                {/* Label badge */}
                 <div
                   className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                     showAfter[index]
@@ -95,7 +94,6 @@ const RepairGallery = () => {
                 >
                   {showAfter[index] ? "After" : "Before"}
                 </div>
-                {/* Tap hint */}
                 <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors flex items-center justify-center">
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white font-display font-semibold text-sm bg-foreground/60 px-4 py-2 rounded-full flex items-center gap-2">
                     Tap to see {showAfter[index] ? "before" : "after"}
@@ -127,7 +125,7 @@ const RepairGallery = () => {
               <div className="relative aspect-square rounded-xl overflow-hidden border border-primary/10">
                 <img
                   src={showAfter[activeIndex] ? repairs[activeIndex].after : repairs[activeIndex].before}
-                  alt={`${showAfter[activeIndex] ? "After" : "Before"} - ${repairs[activeIndex].title}`}
+                  alt={`${showAfter[activeIndex] ? "After" : "Before"} — ${repairs[activeIndex].title}`}
                   className="w-full h-full object-cover"
                 />
                 <div

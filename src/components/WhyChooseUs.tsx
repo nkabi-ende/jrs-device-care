@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Zap, ShieldCheck, BadgeDollarSign, Smartphone, Quote } from "lucide-react";
 
 const points = [
-  { icon: Zap, title: "Fast Turnaround", desc: "Most repairs completed same-day or within 24 hours." },
-  { icon: ShieldCheck, title: "Quality Parts", desc: "We use only tested, high-quality replacement parts." },
-  { icon: BadgeDollarSign, title: "Affordable Pricing", desc: "Competitive rates with no hidden charges." },
-  { icon: Smartphone, title: "All Devices Welcome", desc: "Phones, tablets, laptops — we fix them all." },
+  { icon: Zap, title: "Fast Turnaround", desc: "Most repairs in Durban completed same-day or within 24 hours." },
+  { icon: ShieldCheck, title: "Quality Parts", desc: "We use only tested, high-quality OEM-compatible replacement parts." },
+  { icon: BadgeDollarSign, title: "Affordable Pricing", desc: "Competitive repair rates in Newlands West with no hidden charges." },
+  { icon: Smartphone, title: "All Devices Welcome", desc: "Phones, tablets, laptops & electronics — we fix them all in Durban." },
 ];
 
 const testimonials = [
@@ -24,7 +24,7 @@ const WhyChooseUs = () => (
         className="text-center mb-10 sm:mb-14"
       >
         <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">Why Us</span>
-        <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-4">Why Choose JR's Device Care</h2>
+        <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-4">Why Durban Trusts JR's Device Care</h2>
       </motion.div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
@@ -46,7 +46,6 @@ const WhyChooseUs = () => (
         ))}
       </div>
 
-      {/* Testimonials */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
         {testimonials.map((t, i) => (
           <motion.div
