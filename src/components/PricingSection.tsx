@@ -46,10 +46,10 @@ const PricingSection = () => (
       >
         <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">Transparent Pricing</span>
         <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4 text-dark-section-foreground">
-          Repair Pricing Guide
+          Device Repair Prices in Durban
         </h2>
         <p className="text-dark-section-foreground/60 max-w-xl mx-auto text-sm sm:text-base">
-          Honest, upfront pricing. No hidden fees. Get an exact quote on WhatsApp.
+          Affordable, upfront repair pricing in Newlands West. No hidden fees — get an exact quote on WhatsApp.
         </p>
       </motion.div>
 

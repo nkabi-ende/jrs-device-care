@@ -11,7 +11,7 @@ const curriculum = [
 
 const highlights = [
   "Practical hands-on training with real devices",
-  "Small class sizes — max 15 students",
+  "Small class sizes — max 20 students",
   "Industry-relevant skills from Day 1",
   "Tools & starter kit included",
   "Certificate of completion",
@@ -20,7 +20,6 @@ const highlights = [
 
 const AcademySection = () => (
   <section id="academy" className="py-16 sm:py-20 md:py-28 bg-dark-section relative overflow-hidden">
-    {/* Background accent */}
     <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
     <div className="container px-4 sm:px-6 relative z-10">
@@ -35,11 +34,11 @@ const AcademySection = () => (
           <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider">New Offering</span>
         </div>
         <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-3 sm:mb-4 text-dark-section-foreground">
-          JR's Device Care <span className="text-primary">Academy</span>
+          Electronics Technician Training in <span className="text-primary">Durban</span>
         </h2>
         <p className="text-dark-section-foreground/60 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-          Launch your career in electronics repair. Our intensive 2–3 week hands-on training program
-          equips you with the practical skills to diagnose, repair, and maintain modern devices.
+          Launch your career in electronics repair in Durban. Our intensive 2–3 week hands-on training program at JR's Device Care Academy
+          equips you with the practical skills to diagnose, repair, and maintain modern devices — right here in Newlands West.
         </p>
       </motion.div>
 
@@ -48,7 +47,7 @@ const AcademySection = () => (
         {[
           { icon: Calendar, label: "April 2026", sub: "Next Intake" },
           { icon: Clock, label: "2–3 Weeks", sub: "Duration" },
-          { icon: Users, label: "15 Students", sub: "Class Size" },
+          { icon: Users, label: "20 Students", sub: "Class Size" },
           { icon: Award, label: "R5,000", sub: "Per Student" },
         ].map((item, i) => (
           <motion.div
@@ -106,7 +105,7 @@ const AcademySection = () => (
           viewport={{ once: true }}
         >
           <h3 className="font-display font-bold text-lg sm:text-xl text-dark-section-foreground mb-4 sm:mb-5">
-            Why Train With Us?
+            Why Train With Us in Durban?
           </h3>
           <div className="space-y-2.5 sm:space-y-3">
             {highlights.map((h) => (
@@ -126,7 +125,7 @@ const AcademySection = () => (
         >
           <GraduationCap className="w-10 h-10 sm:w-12 sm:h-12 text-primary mx-auto mb-4" />
           <h4 className="font-display font-bold text-xl sm:text-2xl text-dark-section-foreground mb-2">Enrol Now</h4>
-          <p className="text-dark-section-foreground/60 text-sm mb-2">April 2026 intake — Limited to 15 seats</p>
+          <p className="text-dark-section-foreground/60 text-sm mb-2">April 2026 intake — Limited to 20 seats</p>
           <p className="font-display font-bold text-2xl sm:text-3xl text-primary mb-5">R5,000</p>
           <div className="flex flex-col gap-3">
             <Button asChild size="lg" className="w-full font-display font-bold animate-pulse-glow">

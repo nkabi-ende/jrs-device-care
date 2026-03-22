@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section className="relative min-h-[100svh] flex items-center bg-hero-bg stripe-pattern overflow-hidden">
-      {/* Gradient orb */}
       <div className="absolute top-1/4 right-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] rounded-full bg-primary/5 blur-[80px] md:blur-[120px] pointer-events-none" />
 
       <div className="container relative z-10 pt-20 pb-12 sm:pt-24 sm:pb-16 md:pt-32 md:pb-24 px-5 sm:px-6">
@@ -15,7 +14,6 @@ const HeroSection = () => {
           transition={{ duration: 0.7 }}
           className="max-w-3xl"
         >
-          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -56,8 +54,8 @@ const HeroSection = () => {
           </div>
 
           <p className="text-hero-foreground/60 text-base sm:text-lg md:text-xl max-w-xl mb-6 sm:mb-8 font-body leading-relaxed">
-            Expert repairs for phones, tablets, laptops & all electronics.
-            Plus: train to become a certified technician at our Academy.
+            Durban's trusted specialists for phone, tablet, laptop &amp; electronics repairs.
+            Fast same-day service in Newlands West &amp; surrounds — plus hands-on technician training at our Academy.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -90,7 +88,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );

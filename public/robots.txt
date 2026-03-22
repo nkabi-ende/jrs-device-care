@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://jrs-device-care.lovable.app/sitemap.xml
