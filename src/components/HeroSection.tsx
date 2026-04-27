@@ -33,7 +33,7 @@ const HeroSection = () => {
               className="inline-flex items-center gap-2 glass rounded-full pl-1.5 pr-3.5 py-1 mb-5 sm:mb-7"
             >
               <span className="flex items-center gap-1 bg-primary text-primary-foreground rounded-full px-2 py-0.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3 h-3" /> Live
+                <Sparkles className="w-3 h-3" /> Most Trusted Repairs
               </span>
               <span className="text-xs sm:text-sm font-medium text-hero-foreground/80 flex items-center gap-1.5">
                 <MapPin className="w-3 h-3 text-primary" /> Newlands West, Durban
