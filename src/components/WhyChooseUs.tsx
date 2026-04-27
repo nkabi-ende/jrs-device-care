@@ -1,52 +1,65 @@
 import { motion } from "framer-motion";
-import { Zap, ShieldCheck, BadgeDollarSign, Smartphone, Quote } from "lucide-react";
+import { Zap, ShieldCheck, BadgeDollarSign, Smartphone, Quote, Star } from "lucide-react";
 
 const points = [
-  { icon: Zap, title: "Fast Turnaround", desc: "Most repairs in Durban completed same-day or within 24 hours." },
-  { icon: ShieldCheck, title: "Quality Parts", desc: "We use only tested, high-quality OEM-compatible replacement parts." },
-  { icon: BadgeDollarSign, title: "Affordable Pricing", desc: "Competitive repair rates in Newlands West with no hidden charges." },
-  { icon: Smartphone, title: "All Devices Welcome", desc: "Phones, tablets, laptops & electronics — we fix them all in Durban." },
+  { icon: Zap, title: "Same-day", desc: "Most repairs completed in under 4 hours." },
+  { icon: ShieldCheck, title: "30-day warranty", desc: "Tested OEM-grade parts on every repair." },
+  { icon: BadgeDollarSign, title: "Honest pricing", desc: "Free diagnostics. No hidden fees." },
+  { icon: Smartphone, title: "Every device", desc: "Phones, tablets, laptops & electronics." },
 ];
 
 const testimonials = [
-  { name: "Thando M.", text: "JR fixed my Samsung screen in under 2 hours. Amazing service and great price!", rating: 5 },
-  { name: "Priya N.", text: "My laptop was overheating badly. They diagnosed and fixed it the same day. Highly recommend!", rating: 5 },
-  { name: "David K.", text: "Affordable iPhone battery replacement. Phone feels brand new again. Thanks JR!", rating: 5 },
+  { name: "Thando M.", role: "Newlands West", text: "JR fixed my Samsung screen in under 2 hours. Amazing service and great price!", rating: 5 },
+  { name: "Priya N.", role: "Phoenix", text: "My laptop was overheating badly. They diagnosed and fixed it the same day. Highly recommend!", rating: 5 },
+  { name: "David K.", role: "Durban North", text: "Affordable iPhone battery replacement. Phone feels brand new again. Thanks JR!", rating: 5 },
 ];
 
 const WhyChooseUs = () => (
-  <section id="why-us" className="py-16 sm:py-20 md:py-28 bg-muted/50">
+  <section id="why-us" className="relative py-20 sm:py-28 md:py-32 bg-background overflow-hidden">
     <div className="container px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-10 sm:mb-14"
+        className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
       >
-        <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">Why Us</span>
-        <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mt-2 mb-4">Why Durban Trusts JR's Device Care</h2>
+        <span className="text-primary font-display font-semibold text-xs uppercase tracking-widest">Why us</span>
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-2 leading-[1.05]">
+          Built on{" "}
+          <span className="font-serif-display italic text-gradient font-normal">trust</span>,
+          backed by results.
+        </h2>
       </motion.div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mb-16 sm:mb-20">
         {points.map((p, i) => (
           <motion.div
             key={p.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="text-center"
+            transition={{ delay: i * 0.08 }}
+            className="group bg-card border border-border rounded-2xl p-5 sm:p-7 hover:border-primary/30 transition-all hover:-translate-y-1"
           >
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 sm:mb-4">
-              <p.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-4 group-hover:from-primary group-hover:to-primary-glow transition-all">
+              <p.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-primary-foreground transition-colors" />
             </div>
-            <h3 className="font-display font-bold text-sm sm:text-lg mb-1 sm:mb-2">{p.title}</h3>
-            <p className="text-muted-foreground text-xs sm:text-sm">{p.desc}</p>
+            <h3 className="font-display font-bold text-base sm:text-xl mb-1.5">{p.title}</h3>
+            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{p.desc}</p>
           </motion.div>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
+      <div className="text-center mb-8">
+        <div className="inline-flex items-center gap-2">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star key={i} className="w-5 h-5 text-primary fill-primary" />
+          ))}
+          <span className="ml-2 text-sm text-muted-foreground">5.0 from real Durban customers</span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
         {testimonials.map((t, i) => (
           <motion.div
             key={t.name}
@@ -54,17 +67,20 @@ const WhyChooseUs = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-card border border-border rounded-xl p-5 sm:p-6"
+            className="bg-card border border-border rounded-2xl p-6 hover:shadow-soft transition-shadow"
           >
-            <Quote className="w-5 h-5 text-primary/40 mb-3" />
-            <p className="text-sm text-foreground/80 mb-4">{t.text}</p>
-            <div className="flex items-center gap-2">
+            <Quote className="w-6 h-6 text-primary/30 mb-3" />
+            <p className="text-sm text-foreground/80 mb-5 leading-relaxed">"{t.text}"</p>
+            <div className="flex items-center justify-between pt-4 border-t border-border">
+              <div>
+                <p className="font-display font-bold text-sm">{t.name}</p>
+                <p className="text-xs text-muted-foreground">{t.role}</p>
+              </div>
               <div className="flex">
                 {Array.from({ length: t.rating }).map((_, j) => (
-                  <span key={j} className="text-primary text-sm">★</span>
+                  <Star key={j} className="w-3.5 h-3.5 text-primary fill-primary" />
                 ))}
               </div>
-              <span className="text-sm font-semibold">{t.name}</span>
             </div>
           </motion.div>
         ))}
