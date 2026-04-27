@@ -153,8 +153,7 @@ const AcademySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15 + i * 0.05 }}
-              className="md:col-span-3 lg:col-span-[1.5] glass rounded-2xl p-4 sm:p-5 flex items-center gap-4 hover:border-primary/30 transition-colors"
-              style={{ gridColumn: "span 3" }}
+              className="md:col-span-2 glass rounded-2xl p-4 sm:p-5 flex items-center gap-4 hover:border-primary/30 transition-colors"
             >
               <div className="w-11 h-11 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
                 <item.icon className="w-5 h-5 text-primary" />
