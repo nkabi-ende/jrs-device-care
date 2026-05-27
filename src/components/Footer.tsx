@@ -45,7 +45,7 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-display font-bold text-hero-foreground mb-4 text-sm uppercase tracking-wider">Services</h4>
+          <h3 className="font-display font-bold text-hero-foreground mb-4 text-sm uppercase tracking-wider">Services</h3>
           <ul className="space-y-2.5 text-sm">
             {[
               { l: "Phone Repairs", h: "#services" },
@@ -63,7 +63,7 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-display font-bold text-hero-foreground mb-4 text-sm uppercase tracking-wider">Academy</h4>
+          <h3 className="font-display font-bold text-hero-foreground mb-4 text-sm uppercase tracking-wider">Academy</h3>
           <ul className="space-y-2.5 text-sm">
             <li><a href="#academy" className="text-hero-foreground/60 hover:text-primary transition-colors link-underline">About the program</a></li>
             <li><a href="#academy" className="text-hero-foreground/60 hover:text-primary transition-colors link-underline">Curriculum</a></li>
@@ -78,7 +78,7 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-display font-bold text-hero-foreground mb-4 text-sm uppercase tracking-wider">Contact</h4>
+          <h3 className="font-display font-bold text-hero-foreground mb-4 text-sm uppercase tracking-wider">Contact</h3>
           <div className="space-y-3">
             <a href="tel:0716865256" className="flex items-center gap-2.5 text-hero-foreground/60 hover:text-primary transition-colors text-sm">
               <Phone className="w-4 h-4 shrink-0" /> 071 686 5256
@@ -94,10 +94,10 @@ const Footer = () => (
       </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center">
-        <p className="text-hero-foreground/30 text-xs">
+        <p className="text-hero-foreground/60 text-xs">
           © {new Date().getFullYear()} JR's Device Care · Phone, Tablet & Laptop Repairs in Durban.
         </p>
-        <p className="text-hero-foreground/30 text-xs">
+        <p className="text-hero-foreground/60 text-xs">
           Crafted with care in Newlands West 🛠️
         </p>
       </div>

@@ -154,9 +154,9 @@ const HeroSection = () => {
                       <Wrench className="w-3 h-3 text-primary" />
                       <span className="text-xs font-medium text-primary uppercase tracking-wider">Repair Workshop</span>
                     </div>
-                    <h3 className="font-display text-3xl font-bold text-hero-foreground mb-2 leading-tight">
+                    <h2 className="font-display text-3xl font-bold text-hero-foreground mb-2 leading-tight">
                       Phones.<br />Tablets.<br />Laptops.
-                    </h3>
+                    </h2>
                     <p className="text-hero-foreground/50 text-sm">All brands. All issues. One trusted workshop in Durban.</p>
                   </div>
                   <div className="relative z-10 grid grid-cols-3 gap-2">

@@ -111,8 +111,12 @@ const FAQSection = () => {
         </motion.div>
 
         <div className="relative mb-6 sm:mb-8">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <label htmlFor="faq-search" className="sr-only">Search FAQs</label>
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
           <Input
+            id="faq-search"
+            type="search"
+            aria-label="Search frequently asked questions"
             placeholder="Search questions..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}

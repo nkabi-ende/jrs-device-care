@@ -156,15 +156,19 @@ const RepairGallery = () => {
                 variant="outline"
                 size="icon"
                 onClick={prev}
+                aria-label="Previous repair example"
                 className="border-primary/30 text-primary hover:bg-primary/10"
               >
                 <ChevronLeft className="w-5 h-5" />
               </Button>
-              <div className="flex gap-2">
-                {repairs.map((_, i) => (
+              <div className="flex gap-2" role="tablist" aria-label="Repair examples">
+                {repairs.map((r, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveIndex(i)}
+                    role="tab"
+                    aria-selected={i === activeIndex}
+                    aria-label={`Show ${r.title}`}
                     className={`w-2.5 h-2.5 rounded-full transition-colors ${
                       i === activeIndex ? "bg-primary" : "bg-dark-section-foreground/20"
                     }`}
@@ -175,6 +179,7 @@ const RepairGallery = () => {
                 variant="outline"
                 size="icon"
                 onClick={next}
+                aria-label="Next repair example"
                 className="border-primary/30 text-primary hover:bg-primary/10"
               >
                 <ChevronRight className="w-5 h-5" />
