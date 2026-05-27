@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, ArrowRight, ArrowLeft, Shield, Clock, GraduationCap, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,8 @@ const DEVICE_TYPES = ["Phone", "Tablet", "Laptop", "Other"];
 type FormType = "repair" | "academy";
 
 const IntakeForm = () => {
+  const uid = useId();
+  const fid = (n: string) => `${uid}-${n}`;
   const [formType, setFormType] = useState<FormType>("repair");
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
@@ -182,17 +184,17 @@ const IntakeForm = () => {
                 <p className="text-muted-foreground text-xs sm:text-sm mb-5 sm:mb-6">Step 1 of {totalSteps}</p>
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium mb-1.5 block">Name</label>
-                    <Input placeholder="Your full name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} className="h-11 sm:h-10" />
+                    <label htmlFor={fid("name")} className="text-sm font-medium mb-1.5 block">Name</label>
+                    <Input id={fid("name")} placeholder="Your full name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} className="h-11 sm:h-10" />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-1.5 block">Phone Number</label>
-                    <Input placeholder="e.g. 071 234 5678" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={20} type="tel" className="h-11 sm:h-10" />
+                    <label htmlFor={fid("phone")} className="text-sm font-medium mb-1.5 block">Phone Number</label>
+                    <Input id={fid("phone")} placeholder="e.g. 071 234 5678" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={20} type="tel" className="h-11 sm:h-10" />
                   </div>
                   {formType === "academy" && (
                     <div>
-                      <label className="text-sm font-medium mb-1.5 block">Email (optional)</label>
-                      <Input placeholder="your@email.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={100} type="email" className="h-11 sm:h-10" />
+                      <label htmlFor={fid("email")} className="text-sm font-medium mb-1.5 block">Email (optional)</label>
+                      <Input id={fid("email")} placeholder="your@email.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={100} type="email" className="h-11 sm:h-10" />
                     </div>
                   )}
                 </div>
@@ -215,8 +217,8 @@ const IntakeForm = () => {
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-1.5 block">Brand & Model (optional)</label>
-                    <Input placeholder="e.g. Samsung Galaxy S24" value={form.brandModel} onChange={(e) => setForm({ ...form, brandModel: e.target.value })} maxLength={100} className="h-11 sm:h-10" />
+                    <label htmlFor={fid("brand")} className="text-sm font-medium mb-1.5 block">Brand & Model (optional)</label>
+                    <Input id={fid("brand")} placeholder="e.g. Samsung Galaxy S24" value={form.brandModel} onChange={(e) => setForm({ ...form, brandModel: e.target.value })} maxLength={100} className="h-11 sm:h-10" />
                   </div>
                 </div>
               </motion.div>
@@ -257,8 +259,8 @@ const IntakeForm = () => {
                     ))}
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-1.5 block">Additional details (optional)</label>
-                    <Textarea placeholder="Describe the issue in more detail..." value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} maxLength={500} rows={3} />
+                    <label htmlFor={fid("notes")} className="text-sm font-medium mb-1.5 block">Additional details (optional)</label>
+                    <Textarea id={fid("notes")} placeholder="Describe the issue in more detail..." value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} maxLength={500} rows={3} />
                   </div>
                 </div>
               </motion.div>
@@ -270,8 +272,9 @@ const IntakeForm = () => {
                 <p className="text-muted-foreground text-xs sm:text-sm mb-5 sm:mb-6">Step 3 of 3</p>
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium mb-1.5 block">Why do you want to join the Academy? (optional)</label>
+                    <label htmlFor={fid("motivation")} className="text-sm font-medium mb-1.5 block">Why do you want to join the Academy? (optional)</label>
                     <Textarea
+                      id={fid("motivation")}
                       placeholder="Tell us about your goals — want to start a repair business, upskill, career change..."
                       value={form.motivation}
                       onChange={(e) => setForm({ ...form, motivation: e.target.value })}
