@@ -55,7 +55,7 @@ const faqSchema = {
     { "@type": "Question", name: "How much does a phone repair cost in Durban?", acceptedAnswer: { "@type": "Answer", text: "Entry-level screen repairs start from R400, batteries from R350. WhatsApp us your model for an exact quote." } },
     { "@type": "Question", name: "Do you repair laptops in Durban?", acceptedAnswer: { "@type": "Answer", text: "Yes, we repair laptops of all brands — screen replacements, battery swaps, charging port fixes, overheating issues, and full diagnostics at our Newlands West workshop." } },
     { "@type": "Question", name: "Who is the JR's Device Care Academy for?", acceptedAnswer: { "@type": "Answer", text: "The course is for anyone wanting to enter the device repair industry — from complete beginners to experienced technicians looking to formalise their skills." } },
-    { "@type": "Question", name: "What does the R5,000 Academy course include?", acceptedAnswer: { "@type": "Answer", text: "2–3 weeks of hands-on training, learning materials, a starter toolkit, practice devices, and a certificate of completion." } },
+    { "@type": "Question", name: "What does the Academy course include and when is the next intake?", acceptedAnswer: { "@type": "Answer", text: "Our next intake is June/July 2026, discounted to R4,000 (normally R5,000). It includes 2–3 weeks of hands-on training, learning materials, a starter toolkit, practice devices, and a certificate of completion." } },
   ],
 };
 
