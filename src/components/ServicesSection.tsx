@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Smartphone, Tablet, Laptop, Monitor, Battery, Zap, Search, Wrench, ArrowUpRight } from "lucide-react";
+import { Smartphone, Tablet, Laptop, Monitor, Battery, Zap, Search, Wrench, ArrowUpRight, Building2 } from "lucide-react";
 
 const services = [
   { icon: Monitor, title: "Screen Repairs", desc: "Cracked or damaged phone, tablet & laptop screens — restored with quality parts.", tag: "Most popular" },
@@ -66,6 +66,35 @@ const ServicesSection = () => (
           </motion.a>
         ))}
       </div>
+
+      {/* Corporate mention */}
+      <motion.a
+        href="/corporate"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="group block bg-hero-bg border border-hero-foreground/10 rounded-2xl p-5 sm:p-6 mb-12 sm:mb-16 hover:border-primary/40 transition-all duration-300"
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-start sm:items-center gap-4">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+              <Building2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+            </div>
+            <div>
+              <h3 className="font-display font-bold text-base sm:text-lg text-hero-foreground flex items-center gap-1">
+                Corporate Repairs
+                <ArrowUpRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-hero-foreground/60 text-xs sm:text-sm leading-relaxed">
+                Volume pricing, scheduled collections & dedicated support for businesses, schools & organisations.
+              </p>
+            </div>
+          </div>
+          <span className="shrink-0 text-primary text-xs sm:text-sm font-display font-semibold group-hover:underline">
+            Get a corporate quote
+          </span>
+        </div>
+      </motion.a>
 
       <motion.div
         initial={{ opacity: 0 }}
