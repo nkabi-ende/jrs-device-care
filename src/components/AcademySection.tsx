@@ -19,8 +19,8 @@ const outcomes = [
   { icon: BookOpen, label: "Starter toolkit included" },
 ];
 
-// Countdown to April 1, 2026
-const TARGET = new Date("2026-04-01T08:00:00+02:00").getTime();
+// Countdown to June 1, 2026 (June/July intake)
+const TARGET = new Date("2026-06-01T08:00:00+02:00").getTime();
 
 const useCountdown = () => {
   const [now, setNow] = useState(Date.now());
