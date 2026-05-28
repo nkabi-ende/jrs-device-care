@@ -16,7 +16,7 @@ const courseSchema = {
   "@type": "Course",
   name: "Electronics Repair Technician Training in Durban — JR's Device Care Academy",
   description:
-    "Intensive 2-3 week hands-on electronics repair training in Newlands West, Durban. Learn phone screen replacements, soldering, laptop diagnostics and more. R5,000 per student, 20 seats available.",
+    "Intensive 2-3 week hands-on electronics repair training in Newlands West, Durban. Learn phone screen replacements, soldering, laptop diagnostics and more. June/July 2026 intake — discounted to R4,000 (was R5,000), 20 seats available.",
   provider: {
     "@type": "Organization",
     name: "JR's Device Care",
