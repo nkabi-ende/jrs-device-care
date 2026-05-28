@@ -252,7 +252,7 @@ const AcademySection = () => {
 
             <Button asChild size="lg" className="w-full font-display font-bold rounded-full h-12 shadow-glow group mb-3">
               <a
-                href="https://wa.me/27716865256?text=Hi%20JR's%20Device%20Care!%20I'd%20like%20to%20enrol%20in%20the%20April%20Academy."
+                href="https://wa.me/27716865256?text=Hi%20JR's%20Device%20Care!%20I'd%20like%20to%20enrol%20in%20the%20June%2FJuly%202026%20Academy%20intake%20at%20the%20discounted%20R4%2C000%20rate."
                 target="_blank"
                 rel="noopener noreferrer"
               >
