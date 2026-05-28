@@ -52,6 +52,7 @@ const Footer = () => (
               { l: "Laptop Repairs", h: "#services" },
               { l: "Pricing", h: "#pricing" },
               { l: "Repair Gallery", h: "#gallery" },
+              { l: "Corporate Enquiries", h: "/corporate" },
             ].map((i) => (
               <li key={i.l}>
                 <a href={i.h} className="text-hero-foreground/60 hover:text-primary transition-colors link-underline">

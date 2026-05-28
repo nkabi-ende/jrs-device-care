@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Smartphone, Tablet, Laptop, Monitor, Battery, Zap, Search, Wrench, ArrowUpRight } from "lucide-react";
+import { Smartphone, Tablet, Laptop, Monitor, Battery, Zap, Search, Wrench, ArrowUpRight, Building2 } from "lucide-react";
 
 const services = [
   { icon: Monitor, title: "Screen Repairs", desc: "Cracked or damaged phone, tablet & laptop screens — restored with quality parts.", tag: "Most popular" },
