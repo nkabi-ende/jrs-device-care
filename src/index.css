@@ -6,55 +6,59 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 20% 10%;
+    /* Bone surface, Charcoal body — brand v1.0 */
+    --background: 42 33% 94%;
+    --foreground: 0 0% 10%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 220 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 45 100% 51%;
-    --primary-foreground: 220 20% 10%;
-    --primary-glow: 38 100% 60%;
+    /* Signal amber — care accent */
+    --primary: 41 100% 55%;
+    --primary-foreground: 215 68% 14%;
+    --primary-glow: 38 100% 62%;
 
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 0 0% 98%;
+    /* Ink Navy */
+    --secondary: 215 68% 14%;
+    --secondary-foreground: 42 33% 94%;
 
-    --muted: 220 10% 92%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 42 20% 88%;
+    --muted-foreground: 220 9% 36%;
 
-    --accent: 45 80% 60%;
-    --accent-foreground: 220 20% 10%;
+    --accent: 41 100% 55%;
+    --accent-foreground: 215 68% 14%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 10% 88%;
-    --input: 220 10% 88%;
-    --ring: 45 100% 51%;
+    --border: 42 15% 82%;
+    --input: 42 15% 82%;
+    --ring: 41 100% 55%;
 
     --radius: 0.875rem;
 
-    --hero-bg: 220 28% 6%;
-    --hero-foreground: 0 0% 98%;
-    --dark-section: 220 22% 9%;
-    --dark-section-foreground: 0 0% 95%;
-    --gold: 45 100% 51%;
-    --gold-dim: 45 60% 40%;
+    /* Hero / dark sections use Ink Navy */
+    --hero-bg: 215 68% 14%;
+    --hero-foreground: 42 33% 94%;
+    --dark-section: 215 68% 11%;
+    --dark-section-foreground: 42 33% 94%;
+    --gold: 41 100% 55%;
+    --gold-dim: 41 70% 42%;
 
     /* 2026 design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(45 100% 51%), hsl(38 100% 60%));
-    --gradient-radial: radial-gradient(ellipse at top, hsl(45 100% 51% / 0.15), transparent 60%);
-    --gradient-mesh: radial-gradient(at 20% 30%, hsl(45 100% 51% / 0.18) 0px, transparent 50%),
-                     radial-gradient(at 80% 20%, hsl(38 100% 60% / 0.12) 0px, transparent 50%),
-                     radial-gradient(at 50% 80%, hsl(45 100% 51% / 0.1) 0px, transparent 50%);
-    --shadow-glow: 0 0 60px -10px hsl(45 100% 51% / 0.5);
-    --shadow-elegant: 0 20px 60px -20px hsl(220 50% 5% / 0.4);
-    --shadow-soft: 0 10px 40px -15px hsl(220 30% 10% / 0.15);
-    --glass-bg: hsl(220 28% 6% / 0.6);
-    --glass-border: hsl(0 0% 100% / 0.08);
+    --gradient-primary: linear-gradient(135deg, hsl(41 100% 55%), hsl(38 100% 62%));
+    --gradient-radial: radial-gradient(ellipse at top, hsl(41 100% 55% / 0.15), transparent 60%);
+    --gradient-mesh: radial-gradient(at 20% 30%, hsl(41 100% 55% / 0.18) 0px, transparent 50%),
+                     radial-gradient(at 80% 20%, hsl(38 100% 62% / 0.12) 0px, transparent 50%),
+                     radial-gradient(at 50% 80%, hsl(41 100% 55% / 0.1) 0px, transparent 50%);
+    --shadow-glow: 0 0 60px -10px hsl(41 100% 55% / 0.5);
+    --shadow-elegant: 0 20px 60px -20px hsl(215 68% 6% / 0.4);
+    --shadow-soft: 0 10px 40px -15px hsl(215 40% 12% / 0.15);
+    --glass-bg: hsl(215 68% 14% / 0.6);
+    --glass-border: hsl(42 33% 94% / 0.08);
   }
 
   .dark {
