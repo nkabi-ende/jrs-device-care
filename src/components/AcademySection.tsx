@@ -79,7 +79,7 @@ const AcademySection = () => {
         >
           <div className="glass aurora rounded-2xl sm:rounded-3xl p-5 sm:p-7 text-center">
             <p className="text-xs sm:text-sm text-hero-foreground/60 uppercase tracking-widest mb-3">
-              Next intake — April 1, 2026
+              Next intake — June/July 2026
             </p>
             <div className="grid grid-cols-4 gap-2 sm:gap-4">
               {[
