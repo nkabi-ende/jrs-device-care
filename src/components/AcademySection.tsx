@@ -130,9 +130,17 @@ const AcademySection = () => {
             className="md:col-span-2 bg-gradient-to-br from-primary to-primary-glow rounded-3xl p-6 sm:p-8 text-primary-foreground relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
-            <p className="text-xs uppercase tracking-widest font-bold opacity-70 mb-2">Course Fee</p>
-            <p className="font-display font-bold text-5xl sm:text-6xl mb-1">R5,000</p>
-            <p className="text-sm opacity-80">All-inclusive · No hidden fees</p>
+            <div className="flex items-center gap-2 mb-2">
+              <p className="text-xs uppercase tracking-widest font-bold opacity-70">Course Fee</p>
+              <span className="text-[10px] uppercase tracking-widest font-bold bg-primary-foreground text-primary rounded-full px-2 py-0.5">
+                June/July Intake
+              </span>
+            </div>
+            <div className="flex items-baseline gap-3 mb-1 flex-wrap">
+              <p className="font-display font-bold text-5xl sm:text-6xl">R4,000</p>
+              <p className="font-display font-semibold text-2xl opacity-60 line-through">R5,000</p>
+            </div>
+            <p className="text-sm opacity-80">Limited-time discount · All-inclusive</p>
             <div className="mt-6 pt-6 border-t border-primary-foreground/20 space-y-1.5 text-sm font-medium">
               <p>✓ All learning materials</p>
               <p>✓ Starter toolkit</p>
