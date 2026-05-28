@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Smartphone, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import jrLogo from "@/assets/jr-logo.png";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
