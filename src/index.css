@@ -194,7 +194,7 @@
     50% { background-position: 100% 50%; }
   }
   .aurora {
-    background: linear-gradient(120deg, hsl(45 100% 51% / 0.12), hsl(38 100% 60% / 0.06), hsl(45 100% 51% / 0.12));
+    background: linear-gradient(120deg, hsl(41 100% 55% / 0.12), hsl(38 100% 62% / 0.06), hsl(41 100% 55% / 0.12));
     background-size: 200% 200%;
     animation: aurora 12s ease infinite;
   }
