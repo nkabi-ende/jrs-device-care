@@ -150,7 +150,7 @@ const AcademySection = () => {
 
           {/* Stats row */}
           {[
-            { icon: Calendar, label: "April 2026", sub: "Next intake" },
+            { icon: Calendar, label: "June/July 2026", sub: "Next intake" },
             { icon: Clock, label: "2–3 Weeks", sub: "Full-time" },
             { icon: Users, label: "20 Students", sub: "Per cohort" },
             { icon: Award, label: "Certified", sub: "On completion" },
