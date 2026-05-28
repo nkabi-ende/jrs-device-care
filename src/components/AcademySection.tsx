@@ -19,8 +19,8 @@ const outcomes = [
   { icon: BookOpen, label: "Starter toolkit included" },
 ];
 
-// Countdown to April 1, 2026
-const TARGET = new Date("2026-04-01T08:00:00+02:00").getTime();
+// Countdown to June 1, 2026 (June/July intake)
+const TARGET = new Date("2026-06-01T08:00:00+02:00").getTime();
 
 const useCountdown = () => {
   const [now, setNow] = useState(Date.now());
@@ -79,7 +79,7 @@ const AcademySection = () => {
         >
           <div className="glass aurora rounded-2xl sm:rounded-3xl p-5 sm:p-7 text-center">
             <p className="text-xs sm:text-sm text-hero-foreground/60 uppercase tracking-widest mb-3">
-              Next intake — April 1, 2026
+              Next intake — June/July 2026
             </p>
             <div className="grid grid-cols-4 gap-2 sm:gap-4">
               {[
@@ -130,9 +130,17 @@ const AcademySection = () => {
             className="md:col-span-2 bg-gradient-to-br from-primary to-primary-glow rounded-3xl p-6 sm:p-8 text-primary-foreground relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
-            <p className="text-xs uppercase tracking-widest font-bold opacity-70 mb-2">Course Fee</p>
-            <p className="font-display font-bold text-5xl sm:text-6xl mb-1">R5,000</p>
-            <p className="text-sm opacity-80">All-inclusive · No hidden fees</p>
+            <div className="flex items-center gap-2 mb-2">
+              <p className="text-xs uppercase tracking-widest font-bold opacity-70">Course Fee</p>
+              <span className="text-[10px] uppercase tracking-widest font-bold bg-primary-foreground text-primary rounded-full px-2 py-0.5">
+                June/July Intake
+              </span>
+            </div>
+            <div className="flex items-baseline gap-3 mb-1 flex-wrap">
+              <p className="font-display font-bold text-5xl sm:text-6xl">R4,000</p>
+              <p className="font-display font-semibold text-2xl opacity-60 line-through">R5,000</p>
+            </div>
+            <p className="text-sm opacity-80">Limited-time discount · All-inclusive</p>
             <div className="mt-6 pt-6 border-t border-primary-foreground/20 space-y-1.5 text-sm font-medium">
               <p>✓ All learning materials</p>
               <p>✓ Starter toolkit</p>
@@ -142,7 +150,7 @@ const AcademySection = () => {
 
           {/* Stats row */}
           {[
-            { icon: Calendar, label: "April 2026", sub: "Next intake" },
+            { icon: Calendar, label: "June/July 2026", sub: "Next intake" },
             { icon: Clock, label: "2–3 Weeks", sub: "Full-time" },
             { icon: Users, label: "20 Students", sub: "Per cohort" },
             { icon: Award, label: "Certified", sub: "On completion" },
@@ -244,7 +252,7 @@ const AcademySection = () => {
 
             <Button asChild size="lg" className="w-full font-display font-bold rounded-full h-12 shadow-glow group mb-3">
               <a
-                href="https://wa.me/27716865256?text=Hi%20JR's%20Device%20Care!%20I'd%20like%20to%20enrol%20in%20the%20April%20Academy."
+                href="https://wa.me/27716865256?text=Hi%20JR's%20Device%20Care!%20I'd%20like%20to%20enrol%20in%20the%20June%2FJuly%202026%20Academy%20intake%20at%20the%20discounted%20R4%2C000%20rate."
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Smartphone, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import jrLogo from "@/assets/jr-logo.png";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -43,9 +44,7 @@ const Header = () => {
             : "px-4 sm:px-6 h-14 sm:h-16"
         }`}>
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-glow">
-              <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
-            </div>
+            <img src={jrLogo} alt="JR's Device Care logo" className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl shadow-elegant" />
             <span className="font-display font-bold text-sm sm:text-base text-hero-foreground">
               JR's <span className="text-primary">Device Care</span>
             </span>

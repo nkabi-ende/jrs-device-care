@@ -140,7 +140,7 @@ const HeroSection = () => {
                   </div>
                   <div>
                     <p className="text-hero-foreground font-display font-bold text-sm">Academy</p>
-                    <p className="text-hero-foreground/50 text-xs">April 2026 · 20 seats</p>
+                    <p className="text-hero-foreground/50 text-xs">June/July 2026 · R4,000</p>
                   </div>
                 </div>
               </motion.div>
