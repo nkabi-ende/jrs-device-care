@@ -77,15 +77,14 @@ const Header = () => {
 
           <div className="lg:hidden flex items-center gap-1">
             <CartDrawer />
+            <button
+              className="text-hero-foreground p-2 -mr-1.5 rounded-full hover:bg-hero-foreground/5 transition-colors"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
-
-          <button
-            className="lg:hidden text-hero-foreground p-2 -mr-1.5 rounded-full hover:bg-hero-foreground/5 transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
       </div>
 
