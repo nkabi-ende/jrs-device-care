@@ -3,15 +3,16 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import jrLogo from "@/assets/jr-logo.png";
+import { CartDrawer } from "@/components/CartDrawer";
 
 const NAV_LINKS = [
+  { label: "Shop", href: "/shop" },
   { label: "Services", href: "#services" },
   { label: "Pricing", href: "#pricing" },
   { label: "Academy", href: "#academy" },
   { label: "Gallery", href: "#gallery" },
   { label: "Book", href: "#book" },
   { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
   { label: "Corporate", href: "/corporate" },
 ];
 
@@ -71,15 +72,19 @@ const Header = () => {
                 Chat
               </a>
             </Button>
+            <div className="ml-1"><CartDrawer /></div>
           </nav>
 
-          <button
-            className="lg:hidden text-hero-foreground p-2 -mr-1.5 rounded-full hover:bg-hero-foreground/5 transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          <div className="lg:hidden flex items-center gap-1">
+            <CartDrawer />
+            <button
+              className="text-hero-foreground p-2 -mr-1.5 rounded-full hover:bg-hero-foreground/5 transition-colors"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </div>
 
