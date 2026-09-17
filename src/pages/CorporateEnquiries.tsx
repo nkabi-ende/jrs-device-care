@@ -239,7 +239,7 @@ const CorporateEnquiries = () => (
                 </li>
               ))}
             </ul>
-            <Button asChild size="lg" className="font-display font-bold rounded-full h-13 px-7 shadow-glow">
+            <Button asChild size="lg" className="font-display font-bold rounded-full h-14 px-7 shadow-glow">
               <a href={WA_AUDIT} target="_blank" rel="noopener noreferrer">
                 <ClipboardList className="w-5 h-5" />
                 Request an Electronics Audit
