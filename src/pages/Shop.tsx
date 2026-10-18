@@ -9,30 +9,44 @@ import { ProductCard } from "@/components/ProductCard";
 import { CartDrawer } from "@/components/CartDrawer";
 import { storefrontApiRequest, PRODUCTS_QUERY, type ShopifyProduct } from "@/lib/shopify";
 
-const CATEGORIES = ["All", "Phones", "Laptops", "Electronics"];
+const CATEGORIES = ["All", "Phones", "Tablets", "Laptops", "Electronics"];
 
 const Shop = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [filter, setFilter] = useState("All");
 
   useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setError(false);
     (async () => {
       try {
         const q = filter === "All" ? undefined : `tag:${filter.toLowerCase()} OR product_type:${filter}`;
         const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 50, query: q });
-        setProducts(data?.data?.products?.edges || []);
-      } catch (e) { console.error(e); }
-      finally { setLoading(false); }
+        if (!data) throw new Error("Store unavailable");
+        if (active) setProducts(data?.data?.products?.edges || []);
+      } catch (e) { console.error(e); if (active) setError(true); }
+      finally { if (active) setLoading(false); }
     })();
+    return () => { active = false; };
   }, [filter]);
 
   return (
     <>
       <Helmet>
         <title>Refurbished Shop | JR's Device Care Durban</title>
-        <meta name="description" content="Shop certified refurbished phones, laptops and electronics from JR's Device Care Durban. Tested, warranty-backed second-hand devices." />
-        <link rel="canonical" href="https://jrs-device-care.lovable.app/shop" />
+        <meta name="description" content="Explore pre-owned phones, tablets, laptops and electronics from JRs Device Care in Durban. View current stock, specifications and prices." />
+        <link rel="canonical" href="https://jrsdevicecare.co.za/shop" />
+      <meta property="og:title" content="Pre-Owned Devices Durban | JRs Device Care" />
+        <meta property="og:description" content="Your next device. Its next chapter. Browse pre-owned phones, tablets and laptops from JRs Device Care, Durban." />
+        <meta property="og:url" content="https://jrsdevicecare.co.za/shop" />
+        <meta property="og:image" content="https://jrsdevicecare.co.za/social-preview.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Pre-Owned Devices Durban | JRs Device Care" />
+        <meta name="twitter:description" content="Browse pre-owned phones, tablets, laptops and electronics from JRs Device Care, Durban." />
+        <meta name="twitter:image" content="https://jrsdevicecare.co.za/social-preview.png" />
       </Helmet>
 
       <Header />
@@ -46,9 +60,9 @@ const Shop = () => {
           </div>
 
           <header className="mb-10 max-w-2xl">
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-3">Refurbished Shop</h1>
+            <h1 className="font-display text-4xl md:text-5xl font-bold mb-3">Your next device.<br />Its next chapter.</h1>
             <p className="text-muted-foreground text-lg">
-              Certified second-hand phones, laptops and electronics — tested, cleaned and backed by our 30-day warranty.
+              Explore pre-owned phones, tablets, laptops and electronics. Check each listing for specifications, condition and warranty terms before you buy.
             </p>
           </header>
 
@@ -70,6 +84,8 @@ const Shop = () => {
             <div className="flex items-center justify-center py-32">
               <Loader2 className="w-8 h-8 animate-spin text-primary" />
             </div>
+          ) : error ? (
+            <div className="py-20 text-center"><h2 className="text-2xl font-bold mb-4">We couldn’t load the shop right now.</h2><p>Ask our sales team about current stock and pricing.</p><a className="inline-block mt-5 underline" href="https://wa.me/27716865256?text=Hi%20JRs%2C%20what%20pre-owned%20devices%20are%20available%3F">Enquire on WhatsApp ↗</a></div>
           ) : products.length === 0 ? (
             <div className="text-center py-24 border border-dashed border-border rounded-3xl">
               <PackageSearch className="w-12 h-12 mx-auto text-muted-foreground mb-4" />
