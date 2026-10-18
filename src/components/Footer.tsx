@@ -73,7 +73,7 @@ const Footer = () => (
           </ul>
           <a href="#academy" className="inline-flex items-center gap-1 text-primary text-xs font-semibold mt-4 group">
             <GraduationCap className="w-3.5 h-3.5" />
-            Enrolling for April 2026
+            Enquire about the next intake
             <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
@@ -81,6 +81,9 @@ const Footer = () => (
         <div>
           <h3 className="font-display font-bold text-hero-foreground mb-4 text-sm uppercase tracking-wider">Contact</h3>
           <div className="space-y-3">
+            <a href="mailto:sales@jrsdevicecare.co.za" className="block text-hero-foreground/60 text-sm">Sales: sales@jrsdevicecare.co.za</a>
+            <a href="mailto:academy@jrsdevicecare.co.za" className="block text-hero-foreground/60 text-sm">Academy: academy@jrsdevicecare.co.za</a>
+            <a href="mailto:corporate@jrsdevicecare.co.za" className="block text-hero-foreground/60 text-sm">Corporate: corporate@jrsdevicecare.co.za</a>
             <a href="tel:0716865256" className="flex items-center gap-2.5 text-hero-foreground/60 hover:text-primary transition-colors text-sm">
               <Phone className="w-4 h-4 shrink-0" /> 071 686 5256
             </a>
