@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, Loader2, ShoppingCart, ShieldCheck, Truck } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CartDrawer } from "@/components/CartDrawer";
@@ -134,7 +134,7 @@ const ProductDetail = () => {
         </div>
       </main>
       <Footer />
-      <FloatingWhatsApp />
+      
     </>
   );
 };

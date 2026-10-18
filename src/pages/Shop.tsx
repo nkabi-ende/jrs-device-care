@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Loader2, PackageSearch } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+
 import { ProductCard } from "@/components/ProductCard";
 import { CartDrawer } from "@/components/CartDrawer";
 import { storefrontApiRequest, PRODUCTS_QUERY, type ShopifyProduct } from "@/lib/shopify";
@@ -102,7 +102,7 @@ const Shop = () => {
         </div>
       </main>
       <Footer />
-      <FloatingWhatsApp />
+      
     </>
   );
 };

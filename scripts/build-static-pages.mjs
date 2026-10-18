@@ -3,7 +3,7 @@ const pages = JSON.parse(readFileSync('src/pages/landingPages.json','utf8'));
 const shell = readFileSync('dist/index.html','utf8');
 const origin = 'https://jrsdevicecare.co.za';
 const escape = s => s.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
-const business = {'@context':'https://schema.org','@type':'LocalBusiness',name:'JRs Device Care',url:origin,telephone:'+27716865256',email:'sales@jrsdevicecare.co.za',address:{'@type':'PostalAddress',addressLocality:'Newlands West, Durban',addressRegion:'KwaZulu-Natal',addressCountry:'ZA'}};
+const business = {'@context':'https://schema.org','@type':'LocalBusiness',name:'JRs Device Care',url:origin,telephone:'+27716865256',email:'enquiries@jrsdevicecare.co.za',address:{'@type':'PostalAddress',addressLocality:'Newlands West, Durban',addressRegion:'KwaZulu-Natal',addressCountry:'ZA'}};
 const shop={title:'Pre-Owned Devices Durban | JRs Device Care',description:'Your next device. Its next chapter. Browse pre-owned phones, tablets, laptops and electronics from JRs Device Care in Durban.'};
 for (const [key,p] of [...Object.entries(pages),['shop',shop]]) {
   const path=key==='home'?'/':`/${key}`;
