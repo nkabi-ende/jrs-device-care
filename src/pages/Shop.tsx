@@ -36,8 +36,8 @@ const Shop = () => {
   return (
     <>
       <Helmet>
-        <title>Refurbished Shop | JR's Device Care Durban</title>
-        <meta name="description" content="Explore pre-owned phones, tablets, laptops and electronics from JRs Device Care in Durban. View current stock, specifications and prices." />
+        <title>Second-Hand Phones & Laptops Durban | JRs Device Care</title>
+        <meta name="description" content="Browse pre-owned and second-hand phones, tablets, laptops and electronics in Durban at JRs Device Care. Check live stock, condition and product details." />
         <link rel="canonical" href="https://jrsdevicecare.co.za/shop" />
       <meta property="og:title" content="Pre-Owned Devices Durban | JRs Device Care" />
         <meta property="og:description" content="Your next device. Its next chapter. Browse pre-owned phones, tablets and laptops from JRs Device Care, Durban." />
@@ -60,12 +60,13 @@ const Shop = () => {
           </div>
 
           <header className="mb-10 max-w-2xl">
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-3">Your next device.<br />Its next chapter.</h1>
+            <h1 className="font-display text-4xl md:text-5xl font-bold mb-3">Second-hand devices in Durban.<br />Your next chapter.</h1>
             <p className="text-muted-foreground text-lg">
-              Explore pre-owned phones, tablets, laptops and electronics. Check each listing for specifications, condition and warranty terms before you buy.
+              Shop available pre-owned phones, tablets, laptops and electronics from JRs Device Care in Newlands West, Durban. Review each device's condition, specifications, availability and any applicable warranty terms before purchasing.
             </p>
           </header>
 
+          <div className="mb-8 rounded-xl border border-border bg-card/60 p-4 text-sm text-muted-foreground"><strong className="text-foreground">Shop with clarity.</strong> Listings are sourced from our Shopify catalogue. Stock and prices are subject to availability; inspect product condition and warranty details, and contact us if anything is unclear. <a className="underline text-foreground" href="https://wa.me/27716865256?text=Hi%20JRs%2C%20I%20have%20a%20question%20about%20a%20pre-owned%20device.">Ask about a device</a>.</div>
           <div className="flex flex-wrap gap-2 mb-8">
             {CATEGORIES.map((c) => (
               <button
