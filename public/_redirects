@@ -1,0 +1,2 @@
+# No custom redirects. Cloudflare Workers serves generated HTML routes and uses SPA fallback.
+# Do not add a catch-all /* /index.html rule: it can trigger Cloudflare redirect loops.
