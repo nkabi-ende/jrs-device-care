@@ -6,6 +6,8 @@ const readText = path => readFileSync(path, 'utf8');
 const readJson = path => JSON.parse(readText(path));
 const pages = readJson('src/pages/landingPages.json');
 pages.home.html = pages.home.html.replace('<!-- home-hero -->', readText('src/pages/homeHero.html'));
+pages.academy.html = pages.academy.html.replace('<!-- academy-workshop -->', readText('src/pages/academyWorkshop.html'));
+pages.corporate.html = pages.corporate.html.replace('<!-- business-industries -->', readText('src/pages/businessIndustries.html'));
 pages.franchise = {
   ...readJson('src/pages/franchiseMeta.json'),
   html: renderFranchisePage(

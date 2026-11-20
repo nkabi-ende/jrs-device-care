@@ -2,17 +2,22 @@ import { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import landingPages from "./landingPages.json";
 import homeHero from "./homeHero.html?raw";
+import academyWorkshop from "./academyWorkshop.html?raw";
+import businessIndustries from "./businessIndustries.html?raw";
 import siteChrome from "../components/siteChrome.json";
 import franchiseMeta from "./franchiseMeta.json";
 import franchiseHtml from "./franchise.html?raw";
 import franchiseCss from "./franchise.css?raw";
 import { renderFranchisePage } from "./franchisePage.js";
 import { initializeLanding } from "./landing.js";
+import { initializeIndustrySlideshow } from "./businessIndustries.js";
 import { initializeSiteMenu, renderLandingHeader } from "../components/siteHeader.js";
 
 const pages = {
   ...landingPages,
   home: { ...landingPages.home, html: landingPages.home.html.replace("<!-- home-hero -->", homeHero) },
+  academy: { ...landingPages.academy, html: landingPages.academy.html.replace("<!-- academy-workshop -->", academyWorkshop) },
+  corporate: { ...landingPages.corporate, html: landingPages.corporate.html.replace("<!-- business-industries -->", businessIndustries) },
   franchise: {
     ...franchiseMeta,
     html: renderFranchisePage(siteChrome, franchiseCss, franchiseHtml),
@@ -32,7 +37,12 @@ export default function Index({ page = "home" }: { page?: PageName }) {
   const html = renderLandingHeader(content.html, path);
   useEffect(() => {
     if (page !== "franchise") initializeLanding();
-    return initializeSiteMenu(root.current);
+    const disposeMenu = initializeSiteMenu(root.current);
+    const disposeSlideshow = page === "corporate" ? initializeIndustrySlideshow(root.current) : undefined;
+    return () => {
+      disposeMenu?.();
+      disposeSlideshow?.();
+    };
   }, [page]);
   return <>
     <Helmet>
