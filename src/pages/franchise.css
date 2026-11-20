@@ -1,0 +1,138 @@
+.franchise {
+  color: var(--ink);
+  background: var(--paper);
+  --franchise-line: #c8cccf;
+}
+
+.franchise .franchise-kicker {
+  margin: 0 0 1rem;
+  color: #725200;
+  font-size: .77rem;
+  font-weight: 700;
+  letter-spacing: .105em;
+  text-transform: uppercase;
+}
+
+.franchise h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 4.2vw, 3.7rem);
+  letter-spacing: -.048em;
+  text-wrap: balance;
+}
+
+.franchise h3 {
+  margin: 0 0 .7rem;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+}
+
+.franchise p { margin: 0; }
+.franchise a:focus-visible, .franchise summary:focus-visible { outline-color: #ad7600; }
+
+.franchise-hero {
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(3rem, 6vw, 5.4rem) 0 1.5rem;
+}
+
+.franchise .franchise-hero .franchise-kicker { color: var(--lime); }
+
+.franchise .franchise-hero h1 {
+  margin: 0 0 1.25rem;
+  max-width: 13ch;
+  font-size: clamp(3rem, 7vw, 6.3rem);
+  line-height: .97;
+  letter-spacing: -.059em;
+}
+
+.franchise .franchise-hero h1 em { color: var(--lime); }
+.franchise .franchise-hero-copy > p:not(.franchise-kicker) { max-width: 42rem; color: #d3dce8; }
+.franchise .franchise-hero .btn.outline { border-color: #8798b0; }
+.franchise .franchise-hero a:focus-visible { outline-color: var(--lime); }
+.franchise .franchise-storefront { margin: clamp(2.25rem, 5vw, 4rem) auto 0; }
+.franchise figure { margin: 0; }
+.franchise figure img { display: block; width: 100%; height: auto; background: #253a58; }
+.franchise .franchise-storefront img { border-radius: 2px 38px 2px 2px; }
+
+.franchise figcaption {
+  margin-top: .75rem;
+  color: var(--jrs-muted);
+  font-size: .78rem;
+}
+
+.franchise .franchise-storefront figcaption { color: #c4d0df; }
+.franchise-section { padding-block: clamp(3rem, 7vw, 6rem); }
+.franchise-heading { max-width: 46rem; margin-bottom: 2.15rem; }
+.franchise-band { background: #e9e9e1; }
+
+.franchise-grid, .franchise-roles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.1rem, 3vw, 3rem);
+}
+
+.franchise-grid > * { border-top: 1px solid var(--franchise-line); padding-top: 1.15rem; }
+.franchise-roles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.franchise-roles article { padding: clamp(1.25rem, 3vw, 2rem); border-top: 3px solid var(--lime); background: var(--paper); }
+.franchise-roles ul { margin: 1rem 0 0; color: var(--jrs-muted); }
+.franchise-roles li + li { margin-top: .55rem; }
+
+.franchise-workshop, .franchise-faq {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 5rem);
+}
+
+.franchise-workshop img { border-radius: 2px 32px 2px 2px; }
+
+.franchise-text-link, .franchise-email {
+  display: inline-block;
+  margin-top: 1.1rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: .25em;
+}
+
+.franchise-steps { margin: 0; padding: 0; list-style: none; counter-reset: process; }
+.franchise-steps li { counter-increment: process; }
+.franchise-steps li::before {
+  content: "0" counter(process);
+  display: block;
+  margin-bottom: .6rem;
+  color: #725200;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.franchise-faq { align-items: start; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); }
+.franchise-faq details { padding: 1rem 0; }
+.franchise-faq details:first-child { border-top: 1px solid var(--franchise-line); }
+.franchise-faq details p { margin-top: .65rem; }
+
+.franchise-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+  padding: clamp(1.35rem, 5vw, 3.5rem);
+  background: var(--lime);
+}
+
+.franchise .franchise-contact p { color: #343b47; }
+.franchise-contact > div:first-child { max-width: 38rem; }
+.franchise-contact-actions { flex: 0 0 auto; }
+.franchise-email { display: block; overflow-wrap: anywhere; }
+.franchise .franchise-contact a:focus-visible { outline-color: var(--ink); }
+
+@media (max-width: 760px) {
+  .franchise-grid, .franchise-roles, .franchise-workshop, .franchise-faq { grid-template-columns: 1fr; }
+  .franchise-contact { display: block; }
+  .franchise-contact-actions { margin-top: 1.5rem; }
+  .franchise-desktop-break { display: none; }
+}
+
+@media (max-width: 430px) {
+  .franchise .franchise-hero h1 { max-width: 12ch; }
+  .franchise .franchise-hero .actions .btn { width: 100%; }
+}
