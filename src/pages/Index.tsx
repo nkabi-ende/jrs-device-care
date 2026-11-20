@@ -20,7 +20,7 @@ const siteOrigin = "https://jrsdevicecare.co.za";
 type PageName = keyof typeof pages;
 export default function Index({ page = "home" }: { page?: PageName }) {
   const content = pages[page];
-  const path = page === "home" ? "/" : `/${page}`;
+  const path = page === "home" ? "/" : `/${page}/`;
   const image = siteOrigin + ("image" in content ? content.image : "/social-preview.png");
   const imageAlt = "imageAlt" in content
     ? content.imageAlt
@@ -49,7 +49,7 @@ export default function Index({ page = "home" }: { page?: PageName }) {
       <meta name="twitter:title" content={content.title} />
       <meta name="twitter:description" content={content.description} />
       <meta name="twitter:image" content={image} />
-      {page === "academy" && <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"Course",name:"JRs Device Care Practical Device Repair Course",description:content.description,provider:{"@type":"Organization",name:"JRs Device Care",url:"https://jrsdevicecare.co.za"},offers:{"@type":"Offer",category:"Paid",price:"7999",priceCurrency:"ZAR",url:"https://jrsdevicecare.co.za/academy"}})}</script>}
+      {page === "academy" && <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"Course",name:"JRs Device Care Practical Device Repair Course",description:content.description,provider:{"@type":"Organization",name:"JRs Device Care",url:"https://jrsdevicecare.co.za"},offers:{"@type":"Offer",category:"Paid",price:"7999",priceCurrency:"ZAR",url:"https://jrsdevicecare.co.za/academy/"}})}</script>}
     </Helmet>
     <div ref={root} className="jrs-home" dangerouslySetInnerHTML={{ __html: html }} />
   </>;

@@ -1,19 +1,20 @@
 const destinations = [
   ["/repairs", "Repairs"],
   ["/pricing", "Pricing"],
+  ["/shop", "Shop devices"],
   ["/academy", "Academy"],
   ["/corporate", "For business"],
-  ["/shop", "Shop devices"],
   ["/franchise", "Franchise"],
   ["/contact", "Contact"],
 ];
 
-export function renderSiteHeader(path, { bookingHref = "/contact", opensEnquiry = false } = {}) {
+export function renderSiteHeader(path, { bookingHref = "/contact/", opensEnquiry = false } = {}) {
   const currentPath = path.replace(/\/$/, "") || "/";
-  const links = destinations.map(([href, label]) => {
+  const link = ([href, label]) => {
     const active = currentPath === href || (href === "/shop" && currentPath.startsWith("/shop/"));
-    return `<a href="${href}"${active ? ' aria-current="page"' : ""}>${label}</a>`;
-  }).join("");
+    return `<a href="${href}/"${active ? ' aria-current="page"' : ""}>${label}</a>`;
+  };
+  const links = destinations.map(link).join("");
   const booking = `href="${bookingHref}"${opensEnquiry ? ' data-enquire="Repair enquiry"' : ""}`;
 
   return `<header class="site-header">
@@ -28,7 +29,8 @@ export function renderSiteHeader(path, { bookingHref = "/contact", opensEnquiry 
         <summary class="site-header__toggle">
           <svg class="site-header__menu-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
           <svg class="site-header__close-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M6 18 18 6"/></svg>
-          <span>Menu</span>
+          <span class="site-header__menu-label">Menu</span>
+          <span class="site-header__close-label">Close</span>
         </summary>
         <nav class="site-header__panel" aria-label="Main navigation">
           ${links}

@@ -3,6 +3,7 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import "./index.css";
 import "./components/siteHeader.css";
+import "./pages/homeMotion.css";
 
 createRoot(document.getElementById("root")!).render(
   <HelmetProvider>

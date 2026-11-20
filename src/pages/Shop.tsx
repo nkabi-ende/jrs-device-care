@@ -38,10 +38,10 @@ const Shop = () => {
       <Helmet>
         <title>Second-Hand Phones & Laptops Durban | JRs Device Care</title>
         <meta name="description" content="Browse pre-owned and second-hand phones, tablets, laptops and electronics in Durban at JRs Device Care. Check live stock, condition and product details." />
-        <link rel="canonical" href="https://jrsdevicecare.co.za/shop" />
+        <link rel="canonical" href="https://jrsdevicecare.co.za/shop/" />
       <meta property="og:title" content="Pre-Owned Devices Durban | JRs Device Care" />
         <meta property="og:description" content="Your next device. Its next chapter. Browse pre-owned phones, tablets and laptops from JRs Device Care, Durban." />
-        <meta property="og:url" content="https://jrsdevicecare.co.za/shop" />
+        <meta property="og:url" content="https://jrsdevicecare.co.za/shop/" />
         <meta property="og:image" content="https://jrsdevicecare.co.za/social-preview.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Pre-Owned Devices Durban | JRs Device Care" />

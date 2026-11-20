@@ -2,26 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jrsdevicecare.co.za/</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
-    <loc>https://jrsdevicecare.co.za/repairs</loc>
+    <loc>https://jrsdevicecare.co.za/repairs/</loc>
   </url>
   <url>
-    <loc>https://jrsdevicecare.co.za/pricing</loc>
+    <loc>https://jrsdevicecare.co.za/pricing/</loc>
   </url>
   <url>
-    <loc>https://jrsdevicecare.co.za/academy</loc>
+    <loc>https://jrsdevicecare.co.za/academy/</loc>
   </url>
   <url>
-    <loc>https://jrsdevicecare.co.za/corporate</loc>
+    <loc>https://jrsdevicecare.co.za/corporate/</loc>
   </url>
   <url>
-    <loc>https://jrsdevicecare.co.za/contact</loc>
+    <loc>https://jrsdevicecare.co.za/contact/</loc>
   </url>
   <url>
-    <loc>https://jrsdevicecare.co.za/franchise</loc>
+    <loc>https://jrsdevicecare.co.za/franchise/</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
-    <loc>https://jrsdevicecare.co.za/shop</loc>
+    <loc>https://jrsdevicecare.co.za/shop/</loc>
   </url>
 </urlset>
