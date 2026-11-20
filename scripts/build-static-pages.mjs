@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { renderFranchisePage } from '../src/pages/franchisePage.js';
+import { renderLandingHeader } from '../src/components/siteHeader.js';
 
 const readText = path => readFileSync(path, 'utf8');
 const readJson = path => JSON.parse(readText(path));
@@ -25,7 +26,7 @@ for (const [key,p] of routes) {
   const imageAlt = p.imageAlt ?? 'JRs Device Care. Device repairs and R7,999 academy in Durban.';
   const tags=`<meta name="robots" content="index,follow,max-image-preview:large"><link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"><title>${escape(p.title)}</title><meta name="description" content="${escape(p.description)}"><link rel="canonical" href="${origin+path}"><meta property="og:type" content="website"><meta property="og:site_name" content="JRs Device Care"><meta property="og:locale" content="en_ZA"><meta property="og:title" content="${escape(p.title)}"><meta property="og:description" content="${escape(p.description)}"><meta property="og:url" content="${origin+path}"><meta property="og:image" content="${image}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${escape(imageAlt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(p.title)}"><meta name="twitter:description" content="${escape(p.description)}"><meta name="twitter:image" content="${image}"><script type="application/ld+json">${JSON.stringify(key==='home'?business:{'@context':'https://schema.org','@type':'WebPage',name:p.title,description:p.description,url:origin+path,isPartOf:{'@id':origin+'/#website'},about:{'@id':origin+'/#business'}})}</script>`;
   html=html.replace('</head>',tags+'</head>');
-  if(p.html)html=html.replace('<div id="root"></div>',`<div id="root"><div class="jrs-home">${p.html}</div></div>`);
+  if(p.html)html=html.replace('<div id="root"></div>',`<div id="root"><div class="jrs-home">${renderLandingHeader(p.html, path)}</div></div>`);
   const dir=key==='home'?'dist':`dist/${key}`;mkdirSync(dir,{recursive:true});writeFileSync(`${dir}/index.html`,html);
 }
 const paths = routes.map(([key]) => key === 'home' ? '/' : `/${key}`);

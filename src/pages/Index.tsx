@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import landingPages from "./landingPages.json";
 import siteChrome from "../components/siteChrome.json";
@@ -7,6 +7,7 @@ import franchiseHtml from "./franchise.html?raw";
 import franchiseCss from "./franchise.css?raw";
 import { renderFranchisePage } from "./franchisePage.js";
 import { initializeLanding } from "./landing.js";
+import { initializeSiteMenu, renderLandingHeader } from "../components/siteHeader.js";
 
 const pages = {
   ...landingPages,
@@ -25,8 +26,11 @@ export default function Index({ page = "home" }: { page?: PageName }) {
     ? content.imageAlt
     : "JRs Device Care — Repairs, R7,999 repair academy, business support and pre-owned devices. Newlands West, Durban.";
 
+  const root = useRef<HTMLDivElement>(null);
+  const html = renderLandingHeader(content.html, path);
   useEffect(() => {
     if (page !== "franchise") initializeLanding();
+    return initializeSiteMenu(root.current);
   }, [page]);
   return <>
     <Helmet>
@@ -47,6 +51,6 @@ export default function Index({ page = "home" }: { page?: PageName }) {
       <meta name="twitter:image" content={image} />
       {page === "academy" && <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"Course",name:"JRs Device Care Practical Device Repair Course",description:content.description,provider:{"@type":"Organization",name:"JRs Device Care",url:"https://jrsdevicecare.co.za"},offers:{"@type":"Offer",category:"Paid",price:"7999",priceCurrency:"ZAR",url:"https://jrsdevicecare.co.za/academy"}})}</script>}
     </Helmet>
-    <div className="jrs-home" dangerouslySetInnerHTML={{ __html: content.html }} />
+    <div ref={root} className="jrs-home" dangerouslySetInnerHTML={{ __html: html }} />
   </>;
 }

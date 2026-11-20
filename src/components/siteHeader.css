@@ -1,0 +1,170 @@
+.jrs-home .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  color: #0c203c;
+  background: #f5f1e7;
+  border-bottom: 1px solid #d6d6cd;
+}
+
+.jrs-home.storefront-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.jrs-home .site-header__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 30px);
+  max-width: 1320px;
+  margin-inline: auto;
+  padding: 11px 4%;
+}
+
+.jrs-home .site-header .brand {
+  flex-shrink: 0;
+  line-height: 1;
+  font-size: 23px;
+}
+
+.jrs-home .site-header .brand img {
+  width: 42px;
+  height: 42px;
+}
+
+.jrs-home .site-header__desktop {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: clamp(10px, 1.45vw, 22px);
+  width: auto;
+  margin: 0 0 0 auto;
+}
+
+.jrs-home .site-header__desktop a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.jrs-home .site-header__desktop a:hover,
+.jrs-home .site-header__desktop a[aria-current="page"] {
+  text-decoration: underline 2px #a97300;
+  text-underline-offset: 5px;
+  border-bottom: 0;
+}
+
+.jrs-home .site-header__booking {
+  flex-shrink: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 15px;
+  border-radius: 8px;
+  background: #ffbd16;
+  color: #0c203c;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.jrs-home .site-header__booking:hover { background: #f5b20a; }
+
+.jrs-home .site-header__mobile {
+  display: none;
+  padding: 0;
+  border: 0;
+}
+
+.jrs-home .site-header__toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 10px;
+  border: 1px solid #c8c8bc;
+  border-radius: 8px;
+  background: #fcfaf5;
+  font-size: 13px;
+  font-weight: 700;
+  list-style: none;
+}
+
+.jrs-home .site-header__toggle::-webkit-details-marker { display: none; }
+.jrs-home .site-header__close-icon,
+.jrs-home .site-header__mobile[open] .site-header__menu-icon,
+.jrs-home .site-header__panel-booking { display: none; }
+.jrs-home .site-header__mobile[open] .site-header__close-icon { display: block; }
+
+.jrs-home .site-header__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 4%;
+  width: min(360px, 92%);
+  min-width: 0;
+  max-height: calc(100vh - 144px);
+  max-height: calc(100dvh - 144px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px;
+  margin: 0;
+  padding: 8px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #d6d6cd;
+  border-radius: 12px;
+  background: #fcfaf5;
+  box-shadow: 0 12px 26px rgb(12 32 60 / 14%);
+}
+
+.jrs-home .site-header__panel a:not(.site-header__booking) {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 12px;
+  border-radius: 6px;
+  color: #0c203c;
+  font-size: 15px;
+}
+
+.jrs-home .site-header__panel a:hover:not(.site-header__booking),
+.jrs-home .site-header__panel a[aria-current="page"] {
+  border-bottom: 0;
+  background: #f3ecd8;
+}
+
+.jrs-home .site-header__panel a[aria-current="page"] {
+  box-shadow: inset 3px 0 #ffbd16;
+  font-weight: 750;
+}
+
+.jrs-home .site-header :focus-visible {
+  outline: 2px solid #8a5900;
+  outline-offset: 2px;
+}
+
+@media (max-width: 1023px) {
+  .jrs-home .site-header__bar { gap: 8px; }
+  .jrs-home .site-header__desktop { display: none; }
+  .jrs-home .site-header__top-booking { margin-left: auto; }
+  .jrs-home .site-header__mobile { display: block; }
+}
+
+@media (max-width: 479px) {
+  .jrs-home .site-header__bar { padding-block: 8px; }
+  .jrs-home .site-header .brand { font-size: 19px; }
+  .jrs-home .site-header .brand img { width: 35px; height: 35px; }
+  .jrs-home .site-header .brand small { letter-spacing: 1.35px; }
+  .jrs-home .site-header__top-booking { padding-inline: 10px; }
+}
+
+@media (max-width: 359px) {
+  .jrs-home .site-header__top-booking { display: none; }
+  .jrs-home .site-header__mobile { margin-left: auto; }
+  .jrs-home .site-header__panel-booking { display: flex; margin-top: 6px; }
+}
