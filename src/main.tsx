@@ -4,6 +4,7 @@ import App from "./App.tsx";
 import "./index.css";
 import "./components/siteHeader.css";
 import "./pages/homeMotion.css";
+import "./pages/servicePage.css";
 
 createRoot(document.getElementById("root")!).render(
   <HelmetProvider>

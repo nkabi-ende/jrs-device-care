@@ -1,0 +1,47 @@
+.jrs-home .service-page-lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  padding-block: clamp(30px, 6vw, 68px);
+}
+
+.jrs-home .service-page-lead .page-intro { padding: 0; }
+.jrs-home .service-page-lead .page-intro h1 { font-size: clamp(32px, 5.7vw, 72px); }
+
+.jrs-home .service-page-lead img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px 32px 4px 4px;
+  background: #d9d6cc;
+}
+
+.jrs-home .service-page-lead figcaption {
+  margin-top: 8px;
+  color: #596471;
+  font-size: 12px;
+}
+
+.jrs-home .academy-pipeline {
+  margin-block: clamp(26px, 5vw, 54px);
+  padding: 24px 0;
+  border-block: 1px solid #c8cccf;
+}
+
+.jrs-home .academy-pipeline h2 {
+  margin-top: 0;
+  font-size: clamp(26px, 4vw, 40px);
+}
+
+.jrs-home .academy-pipeline p { max-width: 64ch; }
+
+.jrs-home .academy-pipeline a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .jrs-home .service-page-lead { grid-template-columns: 1fr; }
+}

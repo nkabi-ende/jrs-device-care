@@ -136,3 +136,33 @@
   .franchise .franchise-hero h1 { max-width: 16ch; }
   .franchise .franchise-hero .actions .btn { width: 100%; }
 }
+
+.franchise .franchise-sales { padding-block: clamp(3rem, 7vw, 6rem); }
+
+.franchise .franchise-sales table {
+  width: 100%;
+  margin: 1.2rem 0 .8rem;
+  border-collapse: collapse;
+}
+
+.franchise .franchise-sales :is(th, td) {
+  padding: .7rem .45rem;
+  border-bottom: 1px solid var(--franchise-line);
+  text-align: right;
+}
+
+.franchise .franchise-sales th:first-child { text-align: left; }
+.franchise .franchise-sales td { font-variant-numeric: tabular-nums; }
+
+.franchise .franchise-sales .franchise-assumptions {
+  max-width: 68ch;
+  margin: 1rem 0;
+  font-size: .86rem;
+}
+
+.franchise .franchise-sales p + p { margin-top: .75rem; }
+.franchise .franchise-sales a { text-decoration: underline; text-underline-offset: .2em; }
+
+@media (max-width: 430px) {
+  .franchise .franchise-sales :is(th, td) { padding-inline: .2rem; font-size: .75rem; }
+}

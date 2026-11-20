@@ -4,7 +4,7 @@ const destinations = [
   ["/shop", "Shop devices"],
   ["/academy", "Academy"],
   ["/corporate", "For business"],
-  ["/franchise", "Franchise"],
+  ["/franchise", "For entrepreneurs"],
   ["/contact", "Contact"],
 ];
 
