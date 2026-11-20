@@ -5,6 +5,7 @@ import { renderLandingHeader } from '../src/components/siteHeader.js';
 const readText = path => readFileSync(path, 'utf8');
 const readJson = path => JSON.parse(readText(path));
 const pages = readJson('src/pages/landingPages.json');
+pages.home.html = pages.home.html.replace('<!-- home-hero -->', readText('src/pages/homeHero.html'));
 pages.franchise = {
   ...readJson('src/pages/franchiseMeta.json'),
   html: renderFranchisePage(
