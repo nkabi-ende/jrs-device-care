@@ -1,4 +1,4 @@
-import { downloadProspectus } from "./prospectus.js";
+import { downloadProspectus, retryProspectusDeliveries } from "./prospectus.js";
 import { getPageHead } from "../src/lib/pageHead.js";
 import { getProductPage } from "../src/lib/productPage.js";
 import { renderPageHead } from "../src/lib/renderPageHead.js";
@@ -27,9 +27,12 @@ async function loadProduct(handle) {
 }
 
 export default {
-  async fetch(request, env) {
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(retryProspectusDeliveries(env));
+  },
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    if (url.pathname === "/api/academy/prospectus") return downloadProspectus(request, env);
+    if (url.pathname === "/api/academy/prospectus") return downloadProspectus(request, env, ctx);
     const item = /^\/shop\/([^/]+)\/?$/.exec(url.pathname);
     if (!item || !["GET", "HEAD"].includes(request.method)) return env.ASSETS.fetch(request);
 

@@ -4,12 +4,12 @@ export const courses = [
   {
     id: "beginner", name: "Beginner", fee: 10000,
     scope: "Three-week course", label: "Black Friday · Save R2,000",
-    description: "Learn to replace phone screens and batteries, then test your work before handover.",
+    description: "Understand how electricity moves through a circuit board and carry out basic repairs on phones, tablets and laptops.",
     skills: [
-      "Identify components, select tools and handle devices safely.",
+      "Identify the main board, battery connector, ground and power input. Explain voltage, current and resistance using a simple circuit.",
       "Build a low-voltage LED circuit on a breadboard. Check the supply voltage with a multimeter, then disconnect power and test an open connection for continuity.",
-      "Study online for two weeks, then practise with a facilitator for one week at a workshop in Newlands West.",
-      "Use the training equipment, take home a starter toolkit and earn a certificate of completion.",
+      "Practise screen and battery replacements on phones and tablets. On serviceable laptops, replace a battery, socketed RAM or a removable SSD and test the result.",
+      "Study online for two weeks, then complete a facilitator-led workshop week at a Durban venue booked for your group. Training equipment, a take-home starter toolkit and a certificate of completion are included.",
     ],
   },
   {
@@ -62,11 +62,11 @@ export function renderAcademyCourses() {
     <button class="btn" type="button" data-prospectus>Download the 16-page prospectus</button>
     <dialog id="prospectus-dialog" aria-labelledby="prospectus-title"><button type="button" data-dismiss aria-label="Close prospectus form">×</button>
     <img src="/jrs-logo.jpeg" width="44" height="44" alt="JRs Device Care Academy">
-    <h2 id="prospectus-title">Download the prospectus</h2><p>Explore all three courses, fees and Durban workshop arrangements in one 16-page PDF.</p>
+    <h2 id="prospectus-title">Download the prospectus</h2><p>Get the 16-page guide to phone, tablet and laptop repairs, course fees and Durban workshop sessions.</p>
     <form><label>Full name<input required name="name" autocomplete="name" minlength="2" maxlength="150"></label>
     <label>Email address<input required name="email" type="email" autocomplete="email" maxlength="254"></label>
     <label>Phone number<input required name="phone" type="tel" autocomplete="tel" minlength="7" maxlength="32"></label>
-    <p class="small">JRs Academy will save your details and notify its enquiries team about your request.</p>
+    <p class="small">JRs Academy saves your details so our enquiries team can follow up about the course.</p>
     <button class="btn lime" type="submit">Download my prospectus</button><p role="status" aria-live="polite"></p></form></dialog></div>
     <div class="course-grid">${cards}</div>
     <section class="course-applications" aria-labelledby="applications-title">

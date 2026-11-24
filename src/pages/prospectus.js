@@ -1,31 +1,72 @@
 export function initializeProspectus() {
   const dialog = document.querySelector('#prospectus-dialog');
   const form = dialog.querySelector('form');
-  const button = form.querySelector('button[type=submit]');
-  const status = form.querySelector('[role=status]');
-  const open = () => dialog.showModal();
   const trigger = document.querySelector('[data-prospectus]');
-  trigger.onclick = open;
-  dialog.querySelector('[data-dismiss]').onclick = () => dialog.close();
+  const submit = form.querySelector('[type=submit]');
+  const status = form.querySelector('[role=status]');
+  const dismiss = dialog.querySelector('[data-dismiss]');
+  const controller = new AbortController();
   let id = crypto.randomUUID();
-  form.onsubmit = async event => {
+  let previousDetails;
+  let href;
+
+  function open() {
+    if (!dialog.open) dialog.showModal();
+  }
+  function close() {
+    dialog.close();
+    trigger.focus({ preventScroll: true });
+  }
+
+  async function download(event) {
     event.preventDefault();
-    if (button.disabled) return;
-    button.disabled = true;
+    if (submit.disabled) return;
+    const details = Object.fromEntries(new FormData(form));
+    const signature = JSON.stringify(details);
+    if (previousDetails !== signature) {
+      id = crypto.randomUUID();
+      if (href) URL.revokeObjectURL(href);
+      href = undefined;
+      previousDetails = signature;
+    }
+    submit.disabled = true;
     status.textContent = 'Preparing your PDF…';
     try {
-      const response = await fetch('/api/academy/prospectus', {method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({...Object.fromEntries(new FormData(form)),id})});
-      if (!response.ok || !response.headers.get('content-type')?.includes('application/pdf')) throw Error();
-      const href = URL.createObjectURL(await response.blob());
+      if (!href) {
+        const response = await fetch('/api/academy/prospectus', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...details, id }), signal: controller.signal,
+        });
+        if (response.status === 400) {
+          status.textContent = 'Please check your name, email and phone number, then try again.';
+          return;
+        }
+        if (!response.ok || !response.headers.get('content-type')?.includes('application/pdf')) throw Error();
+        href = URL.createObjectURL(await response.blob());
+      }
       const link = document.createElement('a');
-      link.href = href; link.download = 'JRs-Academy-Prospectus.pdf'; link.textContent = 'Open your prospectus';
-      status.replaceChildren(link); link.click(); setTimeout(() => URL.revokeObjectURL(href), 300000);
-      id = crypto.randomUUID();
+      link.href = href;
+      link.download = 'JRs-Academy-Prospectus.pdf';
+      link.textContent = 'Download your prospectus again';
+      status.replaceChildren(link);
+      link.click();
     } catch {
-      status.textContent = 'Download unavailable. Check your details and retry, or WhatsApp 071 686 5256.';
-    } finally { button.disabled = false; }
-  };
+      if (!controller.signal.aborted) status.textContent = 'Download unavailable. Please retry or WhatsApp 071 686 5256.';
+    } finally {
+      submit.disabled = false;
+    }
+  }
+
+  trigger.addEventListener('click', open);
+  dismiss.addEventListener('click', close);
+  form.addEventListener('submit', download);
   open();
-  return () => {dialog.close();trigger.onclick=null;form.onsubmit=null;};
+  return () => {
+    controller.abort();
+    if (href) URL.revokeObjectURL(href);
+    dialog.close();
+    trigger.removeEventListener('click', open);
+    dismiss.removeEventListener('click', close);
+    form.removeEventListener('submit', download);
+  };
 }

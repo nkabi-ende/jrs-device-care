@@ -19,5 +19,22 @@
       ],
       "fallthrough": true
     }
-  ]
+  ],
+  "d1_databases": [
+    {
+      "binding": "ACADEMY_LEADS",
+      "database_name": "jrs-academy-leads"
+    }
+  ],
+  "send_email": [
+    {
+      "name": "ACADEMY_EMAIL",
+      "destination_address": "enquiries@jrsdevicecare.co.za"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "*/15 * * * *"
+    ]
+  }
 }
