@@ -7,6 +7,7 @@ export const courses = [
     description: "Learn to replace phone screens and batteries, then test your work before handover.",
     skills: [
       "Identify components, select tools and handle devices safely.",
+      "Build a low-voltage LED circuit on a breadboard. Check the supply voltage with a multimeter, then disconnect power and test an open connection for continuity.",
       "Study online for two weeks, then practise with a facilitator for one week at a workshop in Newlands West.",
       "Use the training equipment, take home a starter toolkit and earn a certificate of completion.",
     ],
@@ -17,7 +18,8 @@ export const courses = [
     description: "Work out why a phone will not charge and which part needs replacing.",
     skills: [
       "Use a multimeter to check the battery, charging port and connections.",
-      "Follow the readings to isolate a fault before replacing parts.",
+      "Trace the charging path on a phone schematic and locate its test points on a practice board.",
+      "Record expected and measured values on a working board and a faulty one. Use the difference to explain which part to test next.",
       "Explain the diagnosis to the customer, quote the job and test the repair.",
     ],
   },
@@ -63,6 +65,7 @@ export function renderAcademyCourses() {
       <h3 id="applications-title">Inside the Advanced workshop</h3>
       <dl>${commercialDevices.map(([device, skill]) => `<div><dt>${device}</dt><dd>${skill}</dd></div>`).join("")}</dl>
     </section>
+    <p>Optional reading from <a href="https://microlek.com/">Microlek Skills Academy</a>. Beginner learners can explore <a href="https://microlek.com/courses/bt105-breadboard-basics/">breadboards</a> and <a href="https://microlek.com/courses/bt102-how-to-use-and-read-a-digital-multimeter/">digital multimeters</a>. Intermediate learners can explore <a href="https://microlek.com/courses/st106-introduction-to-reading-mobile-phones-schematic/">phone schematics</a>.</p>
   </section>`;
 }
 
