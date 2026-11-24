@@ -83,7 +83,6 @@ export function renderAcademyCourses() {
       </dl>
       <p>Graduates receive a JRs Device Care Academy certificate of completion. These short courses do not award NQF credits or the national occupational certificates.</p>
     </section>
-    <p>Optional reading from <a href="https://microlek.com/">Microlek Skills Academy</a>. Beginner learners can explore <a href="https://microlek.com/courses/bt105-breadboard-basics/">breadboards</a> and <a href="https://microlek.com/courses/bt102-how-to-use-and-read-a-digital-multimeter/">digital multimeters</a>. Intermediate learners can explore <a href="https://microlek.com/courses/st106-introduction-to-reading-mobile-phones-schematic/">phone schematics</a>.</p>
   </section>`;
 }
 
