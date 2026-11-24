@@ -73,6 +73,16 @@ export function renderAcademyCourses() {
       <h3 id="applications-title">Inside the Advanced workshop</h3>
       <dl>${commercialDevices.map(([device, skill]) => `<div><dt>${device}</dt><dd>${skill}</dd></div>`).join("")}</dl>
     </section>
+    <section class="course-applications" aria-labelledby="course-alignment">
+      <h3 id="course-alignment">How our modules align with MICT SETA outcomes</h3>
+      <p>JRs Device Care Academy is an independent skills development provider in Durban. We mapped selected repair modules to occupational outcomes developed with MICT SETA.</p>
+      <dl>
+        <div><dt>Phone and tablet workshop</dt><dd>Safe disassembly, parts replacement and function checks align with hardware repair in <a href="https://allqs.saqa.org.za/showQualification.php?id=122468">Mobile Device Repairer (SAQA 122468)</a>.</dd></div>
+        <div><dt>Laptop workshop</dt><dd>Replacing a serviceable module and checking that it works align with hardware repair in <a href="https://allqs.saqa.org.za/showQualification.php?id=122449">Laptop Repairer (SAQA 122449)</a>.</dd></div>
+        <div><dt>Intermediate fault diagnosis</dt><dd>Learners use meter readings to locate a phone fault, record what they found and test the repair against the original complaint.</dd></div>
+      </dl>
+      <p>Graduates receive a JRs Device Care Academy certificate of completion. These short courses do not award NQF credits or the national occupational certificates.</p>
+    </section>
     <p>Optional reading from <a href="https://microlek.com/">Microlek Skills Academy</a>. Beginner learners can explore <a href="https://microlek.com/courses/bt105-breadboard-basics/">breadboards</a> and <a href="https://microlek.com/courses/bt102-how-to-use-and-read-a-digital-multimeter/">digital multimeters</a>. Intermediate learners can explore <a href="https://microlek.com/courses/st106-introduction-to-reading-mobile-phones-schematic/">phone schematics</a>.</p>
   </section>`;
 }
