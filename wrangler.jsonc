@@ -6,8 +6,18 @@
     "not_found_handling": "single-page-application",
     "binding": "ASSETS",
     "run_worker_first": [
-      "/shop/*"
+      "/shop/*",
+      "/api/academy/prospectus"
     ]
   },
-  "main": "worker/productPreview.js"
+  "main": "worker/productPreview.js",
+  "rules": [
+    {
+      "type": "Data",
+      "globs": [
+        "**/*.pdf"
+      ],
+      "fallthrough": true
+    }
+  ]
 }

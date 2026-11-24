@@ -11,6 +11,7 @@ import franchiseMeta from "./franchiseMeta.json";
 import franchiseHtml from "./franchise.html?raw";
 import franchiseCss from "./franchise.css?raw";
 import { renderFranchisePage } from "./franchisePage.js";
+import { initializeProspectus } from "./prospectus.js";
 import { initializeLanding } from "./landing.js";
 import { initializeIndustrySlideshow } from "./businessIndustries.js";
 import { initializeSiteMenu, renderLandingHeader } from "../components/siteHeader.js";
@@ -33,9 +34,11 @@ export default function Index({ page = "home" }: { page?: PageName }) {
   const html = renderLandingHeader(content.html, path);
   useEffect(() => {
     if (page !== "franchise") initializeLanding();
+    const disposeProspectus = page === "academy" ? initializeProspectus() : undefined;
     const disposeMenu = initializeSiteMenu(root.current);
     const disposeSlideshow = page === "corporate" ? initializeIndustrySlideshow(root.current) : undefined;
     return () => {
+      disposeProspectus?.();
       disposeMenu?.();
       disposeSlideshow?.();
     };

@@ -57,7 +57,15 @@ export function renderAcademyCourses() {
   return `<section class="academy-levels" id="curriculum" aria-labelledby="levels-title">
     <div class="course-heading"><div><h2 id="levels-title">Choose your repair course.</h2>
     <p>Each fee is the total for the level you choose. Intermediate includes Beginner, and Advanced covers the full programme.</p></div>
-    <a class="course-guide-link" href="/academy-media/course-guide.pdf" download="JRs-Academy-Course-Brochure.pdf">Download the course brochure (PDF)</a></div>
+    <button class="btn" type="button" data-prospectus>Download the 16-page prospectus</button>
+    <dialog id="prospectus-dialog" aria-labelledby="prospectus-title"><button type="button" data-dismiss aria-label="Close prospectus form">×</button>
+    <img src="/jrs-logo.jpeg" width="44" height="44" alt="JRs Device Care Academy">
+    <h2 id="prospectus-title">Download the prospectus</h2><p>Explore all three courses, fees and Durban workshop arrangements in one 16-page PDF.</p>
+    <form><label>Full name<input required name="name" autocomplete="name" minlength="2" maxlength="150"></label>
+    <label>Email address<input required name="email" type="email" autocomplete="email" maxlength="254"></label>
+    <label>Phone number<input required name="phone" type="tel" autocomplete="tel" minlength="7" maxlength="32"></label>
+    <p class="small">JRs Academy will save your details and notify its enquiries team about your request.</p>
+    <button class="btn lime" type="submit">Download my prospectus</button><p role="status" aria-live="polite"></p></form></dialog></div>
     <div class="course-grid">${cards}</div>
     <section class="course-applications" aria-labelledby="applications-title">
       <h3 id="applications-title">Inside the Advanced workshop</h3>

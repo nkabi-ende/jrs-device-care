@@ -300,3 +300,10 @@
 .course-applications dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 22px; margin: 0; }
 .course-applications dt { font-weight: 700; }
 .course-applications dd { margin: 5px 0 0; }
+#prospectus-dialog {width:min(92vw,460px);max-height:90dvh;overflow:auto;padding:28px;color:#101f39;background:#faf8f1;border:0;border-radius:12px;margin:auto}
+#prospectus-dialog::backdrop {background:#101f39ad}
+#prospectus-dialog [data-dismiss] {position:absolute;right:12px;top:8px;font-size:26px;background:transparent;border:0;padding:8px}
+.jrs-home #prospectus-title {font-size:2rem;margin:14px 0}
+#prospectus-dialog label {display:block;margin:12px 0;font-weight:700}
+#prospectus-dialog input {display:block;width:100%;padding:10px;border:1px solid #86909b;border-radius:4px;background:white;color:#101f39;font-size:16px}
+#prospectus-dialog form button {width:100%;margin-top:12px}
