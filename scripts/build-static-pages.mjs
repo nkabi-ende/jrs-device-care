@@ -2,6 +2,9 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { renderFranchisePage } from '../src/pages/franchisePage.js';
 import { renderLandingHeader } from '../src/components/siteHeader.js';
 
+import { getPageHead, siteOrigin as origin } from '../src/lib/pageHead.js';
+import { renderPageHead } from '../src/lib/renderPageHead.js';
+
 const readText = path => readFileSync(path, 'utf8');
 const readJson = path => JSON.parse(readText(path));
 const pages = readJson('src/pages/landingPages.json');
@@ -17,8 +20,6 @@ pages.franchise = {
   ),
 };
 const shell = readFileSync('dist/index.html','utf8');
-const origin = 'https://jrsdevicecare.co.za';
-const escape = s => s.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const business={'@context':'https://schema.org','@graph':[{'@type':['LocalBusiness','ElectronicsStore'],'@id':origin+'/#business',name:'JRs Device Care',alternateName:"Junior's Device Care",url:origin+'/',logo:origin+'/jrs-logo.jpeg',image:origin+'/jrs-logo.jpeg',telephone:'+27716865256',email:'enquiries@jrsdevicecare.co.za',description:'Phone, tablet, laptop and electronics repair technicians in Newlands West, Durban, offering repairs, training, business servicing and second-hand devices.',address:{'@type':'PostalAddress',addressLocality:'Newlands West',addressRegion:'KwaZulu-Natal',addressCountry:'ZA'},areaServed:[{'@type':'City',name:'Durban'},{'@type':'Place',name:'Newlands West'},{'@type':'AdministrativeArea',name:'KwaZulu-Natal'}],hasOfferCatalog:{'@type':'OfferCatalog',name:'Device Care Services',itemListElement:[{'@type':'OfferCatalog',name:'Phone, tablet, laptop and electronics repairs',url:origin+'/repairs/'},{'@type':'OfferCatalog',name:'Device repair technician training',url:origin+'/academy/'},{'@type':'OfferCatalog',name:'Corporate device servicing',url:origin+'/corporate/'},{'@type':'OfferCatalog',name:'Second-hand devices',url:origin+'/shop/'}]}},{'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'JRs Device Care',publisher:{'@id':origin+'/#business'},inLanguage:'en-ZA'}]};
 function getPageSchema(key, page, path) {
   if (key === 'home') return business;
@@ -50,20 +51,16 @@ function getPageSchema(key, page, path) {
   };
 }
 
-const shop={title:'Second-Hand Phones & Laptops Durban | JRs Device Care',description:'Browse pre-owned and second-hand phones, tablets, laptops and electronics in Durban at JRs Device Care. Check live stock, condition and product details.'};
+const shop = readJson('src/pages/shopMeta.json');
 const routes = [...Object.entries(pages), ['shop', shop]];
+const imagePaths = routes.map(([, page]) => page.image);
+if (new Set(imagePaths).size !== routes.length) throw new Error('Each main page needs a distinct sharing image.');
+for (const path of imagePaths) readFileSync('dist' + path);
 for (const [key,p] of routes) {
   const path = key === 'home' ? '/' : `/${key}/`;
   let html=shell.replace(/<title>[\s\S]*?<\/title>/g,'').replace(/<meta\b[^>]*(?:name|property)=["'](?:description|og:[^"']*|twitter:[^"']*)["'][^>]*>/g,'').replace(/<link\b[^>]*rel=["']canonical["'][^>]*>/g,'').replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g,'');
-  const image = origin + (p.image ?? '/social-preview.png');
-  const imageAlt = p.imageAlt ?? 'JRs Device Care. Device repairs and R7,999 academy in Durban.';
-  const tags=`<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"><title>${escape(p.title)}</title><meta name="description" content="${escape(p.description)}"><link rel="canonical" href="${origin+path}"><meta property="og:type" content="website"><meta property="og:site_name" content="JRs Device Care"><meta property="og:locale" content="en_ZA"><meta property="og:title" content="${escape(p.title)}"><meta property="og:description" content="${escape(p.description)}"><meta property="og:url" content="${origin+path}"><meta property="og:image" content="${image}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${escape(imageAlt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(p.title)}"><meta name="twitter:description" content="${escape(p.description)}"><meta name="twitter:image" content="${image}"><script type="application/ld+json">${JSON.stringify(getPageSchema(key, p, path))}</script>`;
-  // Reuse route metadata on hydration so Helmet replaces the prerendered tags.
-  const managedTags = tags.replace(
-    /<(meta|link) (?=(?:name|property)="(?:description"|og:(?!site_name"|locale")|twitter:)|rel="canonical")/g,
-    '<$1 data-rh="true" ',
-  );
-  html = html.replace('</head>', managedTags + '</head>');
+  const tags = renderPageHead(getPageHead(p, path), getPageSchema(key, p, path));
+  html = html.replace('</head>', () => tags + '</head>');
   if(p.html)html=html.replace('<div id="root"></div>',`<div id="root"><div class="jrs-home">${renderLandingHeader(p.html, path)}</div></div>`);
   const dir=key==='home'?'dist':`dist/${key}`;mkdirSync(dir,{recursive:true});writeFileSync(`${dir}/index.html`,html);
 }

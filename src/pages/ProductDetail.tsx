@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, Loader2, ShoppingCart, ShieldCheck, Truck } from "lucide-react";
+import { getPageHead } from "../lib/pageHead.js";
+import { getProductPage } from "../lib/productPage.js";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -21,14 +23,24 @@ const ProductDetail = () => {
   const isLoading = useCartStore((s) => s.isLoading);
 
   useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setProduct(null);
+    setActiveImage(0);
     (async () => {
       try {
         const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
-        const p = data?.data?.product;
-        setProduct(p);
-        setVariantId(p?.variants?.edges?.[0]?.node?.id ?? null);
-      } finally { setLoading(false); }
+        if (!active) return;
+        const item = data?.data?.product ?? null;
+        setProduct(item);
+        setVariantId(item?.variants?.edges?.[0]?.node?.id ?? null);
+      } catch {
+        if (active) setProduct(null);
+      } finally {
+        if (active) setLoading(false);
+      }
     })();
+    return () => { active = false; };
   }, [handle]);
 
   const variant = product?.variants.edges.find((v) => v.node.id === variantId)?.node;
@@ -47,16 +59,7 @@ const ProductDetail = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{product ? `${product.title} | JR's Device Care` : "Product"}</title>
-        <meta name="description" content={product?.description?.slice(0, 155) || "Refurbished device from JR's Device Care."} />
-      <link rel="canonical" href={`https://jrsdevicecare.co.za/shop/${encodeURIComponent(handle || "")}`} />
-        <meta property="og:title" content={product ? `${product.title} | JRs Device Care` : "Pre-Owned Devices | JRs Device Care"} />
-        <meta property="og:description" content={product?.description?.slice(0,155) || "Explore pre-owned devices from JRs Device Care, Durban."} />
-        <meta property="og:url" content={`https://jrsdevicecare.co.za/shop/${encodeURIComponent(handle || "")}`} />
-        <meta property="og:image" content={product?.images?.edges?.[0]?.node?.url || "https://jrsdevicecare.co.za/social-preview.png"} />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      <Helmet {...getPageHead(getProductPage(product), `/shop/${encodeURIComponent(handle || "")}`, product ? "product" : "website")} />
       <Header />
       <main className="min-h-screen bg-background pt-24 pb-20">
         <div className="container px-4 max-w-6xl">
