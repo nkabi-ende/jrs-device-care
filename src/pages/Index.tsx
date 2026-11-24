@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { getPageHead } from "../lib/pageHead.js";
 import landingPages from "./landingPages.json";
 import homeHero from "./homeHero.html?raw";
+import { renderAcademyCourses, academyCourseSchema } from "./academyCourses.js";
 import academyWorkshop from "./academyWorkshop.html?raw";
 import businessIndustries from "./businessIndustries.html?raw";
 import siteChrome from "../components/siteChrome.json";
@@ -17,7 +18,7 @@ import { initializeSiteMenu, renderLandingHeader } from "../components/siteHeade
 const pages = {
   ...landingPages,
   home: { ...landingPages.home, html: landingPages.home.html.replace("<!-- home-hero -->", homeHero) },
-  academy: { ...landingPages.academy, html: landingPages.academy.html.replace("<!-- academy-workshop -->", academyWorkshop) },
+  academy: { ...landingPages.academy, html: landingPages.academy.html.replace("<!-- academy-courses -->", renderAcademyCourses()).replace("<!-- academy-workshop -->", academyWorkshop) },
   corporate: { ...landingPages.corporate, html: landingPages.corporate.html.replace("<!-- business-industries -->", businessIndustries) },
   franchise: {
     ...franchiseMeta,
@@ -41,7 +42,7 @@ export default function Index({ page = "home" }: { page?: PageName }) {
   }, [page]);
   return <>
     <Helmet {...getPageHead(content, path)}>
-      {page === "academy" && <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"Course",name:"JRs Device Care Practical Device Repair Course",description:content.description,provider:{"@type":"Organization",name:"JRs Device Care",url:"https://jrsdevicecare.co.za"},offers:{"@type":"Offer",category:"Paid",price:"10000",priceCurrency:"ZAR",url:"https://jrsdevicecare.co.za/academy/"}})}</script>}
+      {page === "academy" && <script type="application/ld+json">{JSON.stringify(academyCourseSchema())}</script>}
     </Helmet>
     <div ref={root} className="jrs-home" dangerouslySetInnerHTML={{ __html: html }} />
   </>;

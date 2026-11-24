@@ -244,3 +244,59 @@
 .academy-examples thead { background: #101f3a; color: #f5f1e7; }
 .academy-examples tbody td:last-child { font-weight: 700; }
 .academy-examples .small a { text-decoration: underline; }
+
+.jrs-home .academy-levels {
+  padding-block: clamp(32px, 6vw, 78px);
+  color: #101f3a;
+}
+.academy-levels, .academy-levels .course-card { scroll-margin-top: 88px; }
+.academy-levels .course-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+.jrs-home .course-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  letter-spacing: -.05em;
+  line-height: 1.05;
+}
+.course-heading p { max-width: 59ch; margin: 12px 0 0; }
+.jrs-home .course-guide-link {
+  padding-block: 8px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+  gap: 14px;
+}
+.jrs-home .course-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 2.3vw, 34px);
+  border: 1px solid #c5c7c2;
+  border-radius: 4px 24px 4px 4px;
+  background: #faf9f4;
+}
+.jrs-home .course-card:first-child { background: #10223c; color: #faf9f4; border-color: #10223c; }
+.course-label { font-size: .83rem; font-weight: 700; }
+.course-card:first-child .course-label { color: #ffca54; }
+.jrs-home .course-card h3 { color: inherit; margin: 20px 0 4px; font-size: clamp(1.6rem, 2.6vw, 2.3rem); }
+.jrs-home .course-card .course-fee { margin: 0; color: inherit; font-size: 2.2rem; line-height: 1.2; font-weight: 750; letter-spacing: -.05em; }
+.course-fee small { font-size: .9rem; font-weight: 500; letter-spacing: 0; white-space: nowrap; }
+.jrs-home .course-card .course-scope { margin: 4px 0 10px; font-size: .85rem; font-weight: 700; }
+.jrs-home .course-card p, .jrs-home .course-card li { color: inherit; }
+.course-card ul { margin: 6px 0 22px; padding-left: 1.15em; list-style: disc; }
+.course-card li + li { margin-top: 8px; }
+.jrs-home .course-enquire { margin-top: auto; align-self: flex-start; color: #11223a; background: #ffca54; }
+.jrs-home .course-applications { margin-top: 28px; border-top: 1px solid #c5c7c2; }
+.jrs-home .course-applications h3 { margin: 24px 0 16px; font-size: clamp(1.4rem, 3vw, 2.1rem); }
+.course-applications dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 22px; margin: 0; }
+.course-applications dt { font-weight: 700; }
+.course-applications dd { margin: 5px 0 0; }
