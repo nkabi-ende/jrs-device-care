@@ -3,7 +3,7 @@ import { MessageCircle, X } from "lucide-react";
 
 const options = [
   ["Repair my device", "Hi JRs Device Care, I'd like a repair quote. My device and fault are: "],
-  ["Ask about the academy", "Hi JRs Device Care, I'm interested in the certified R7,999 repair course and starter equipment set after completion. Please send November / December intake details."],
+  ["Ask about the academy", "Hi JRs Device Care, I'm interested in the R10,000 Black Friday repair course with the take-home startup kit. Please send intake dates for December 2026 and January 2027."],
   ["Business device support", "Hi JRs Device Care, I'd like to discuss device support for my business."],
   ["Shop pre-owned devices", "Hi JRs Device Care, what pre-owned devices are available?"],
 ];

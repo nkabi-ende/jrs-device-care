@@ -41,7 +41,7 @@ export default function Index({ page = "home" }: { page?: PageName }) {
   }, [page]);
   return <>
     <Helmet {...getPageHead(content, path)}>
-      {page === "academy" && <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"Course",name:"JRs Device Care Practical Device Repair Course",description:content.description,provider:{"@type":"Organization",name:"JRs Device Care",url:"https://jrsdevicecare.co.za"},offers:{"@type":"Offer",category:"Paid",price:"7999",priceCurrency:"ZAR",url:"https://jrsdevicecare.co.za/academy/"}})}</script>}
+      {page === "academy" && <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"Course",name:"JRs Device Care Practical Device Repair Course",description:content.description,provider:{"@type":"Organization",name:"JRs Device Care",url:"https://jrsdevicecare.co.za"},offers:{"@type":"Offer",category:"Paid",price:"10000",priceCurrency:"ZAR",url:"https://jrsdevicecare.co.za/academy/"}})}</script>}
     </Helmet>
     <div ref={root} className="jrs-home" dangerouslySetInnerHTML={{ __html: html }} />
   </>;
