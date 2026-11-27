@@ -35,8 +35,10 @@ export function initializeCctv(root) {
     status.textContent = "Continue in your email app to review and send your enquiry.";
   };
   form.addEventListener("submit", openWhatsApp);
+  form.hidden = false;
   email.addEventListener("click", openEmail);
   return () => {
+    form.hidden = true;
     form.removeEventListener("submit", openWhatsApp);
     email.removeEventListener("click", openEmail);
     listeners.forEach(dispose => dispose());
