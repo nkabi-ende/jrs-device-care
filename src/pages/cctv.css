@@ -15,12 +15,11 @@
 .cctv-nav-links a:last-child{color:#ffbd16}
 .cctv-page .cctv-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.96fr);gap:clamp(25px,5vw,70px);align-items:center;padding-block:clamp(34px,6vw,80px)}
 .cctv-hero-copy>p{max-width:53ch;font-size:17px}
+.cctv-hero-copy .cctv-hero-price{font-size:15px;margin-top:20px}
+.cctv-hero-price a{text-decoration:underline;text-underline-offset:3px}
 .cctv-hero-copy .cctv-local{font-size:12px;margin-top:22px}
 .cctv-hero-visual{position:relative;margin:0;background:#0c203c;overflow:hidden;border-radius:4px 48px 4px 4px;isolation:isolate}
 .cctv-hero-visual img{display:block;width:100%;height:auto}
-.cctv-hero-visual figcaption{position:absolute;bottom:0;left:0;right:0;padding:18px 22px;background:#0c203ce8;border-top:1px solid #ffffff26;color:#f5f1e7;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
-.cctv-hero-visual figcaption span{font:10px monospace;color:#ffbd16;letter-spacing:1px}
-.cctv-hero-visual figcaption strong{font-size:15px}
 .cctv-strip{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-block:1px solid #c8cccf;padding:21px 0;font:11px monospace;color:#596471}
 .cctv-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .cctv-card{border:1px solid #d6d6cd;background:#faf7f0;border-radius:4px 28px 4px 4px;overflow:hidden}
@@ -41,9 +40,12 @@
 .cctv-system-grid p{font-size:14px;flex:1}
 .cctv-system-grid a{color:#ffbd16;font-weight:700;font-size:13px;margin-top:16px;min-height:44px;display:flex;align-items:center}
 .cctv-count{font-size:clamp(49px,6vw,75px);font-weight:700;letter-spacing:-.065em;color:#ffbd16;line-height:1}
+.cctv-price{display:flex;flex-direction:column;gap:6px;color:#ffbd16;font-weight:700}
+.cctv-price strong{font-size:clamp(42px,5vw,64px);letter-spacing:-.055em;line-height:1}
 .cctv-tech{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid #526078;margin-top:32px;padding-top:24px}
 .cctv-tech h3{font-size:18px;margin:0}.cctv-tech p{font-size:14px;margin:9px 0 0}
 .cctv-service,.cctv-quote{display:grid;grid-template-columns:1fr 1fr;gap:clamp(25px,6vw,75px);align-items:start}
+.cctv-installation-image{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center 35%;margin-top:24px;border-radius:4px 28px 4px 4px}
 .cctv-steps article{display:flex;gap:20px;padding:20px 0;border-top:1px solid #c8cccf}
 .cctv-steps article span{font:13px monospace;color:#987000;padding-top:5px}
 .cctv-steps h3{font-size:20px;margin:0}.cctv-steps p{font-size:14px;margin:8px 0 0}
@@ -58,5 +60,5 @@
 .cctv-page a:focus-visible,.cctv-page button:focus-visible,.cctv-page input:focus-visible,.cctv-page select:focus-visible,.cctv-page textarea:focus-visible{outline:2px solid #987000;outline-offset:3px}
 .cctv-page .cctv-dark a:focus-visible,.cctv-page .cctv-nav a:focus-visible{outline-color:#ffbd16;outline-offset:-2px}
 @media(max-width:800px){.cctv-page .cctv-hero,.cctv-service,.cctv-quote{grid-template-columns:1fr}.cctv-page .cctv-nav{top:65px}.cctv-nav>.wrap{gap:15px}.cctv-nav-brand span{display:none}.cctv-system-grid,.cctv-tech{grid-template-columns:1fr}.cctv-system-grid article{min-height:0}.cctv-pair{gap:14px}}
-@media(max-width:580px){.cctv-pair{grid-template-columns:1fr}.cctv-page .cctv-nav{top:60px}.cctv-nav>.wrap{padding-inline:4%}.cctv-page h1{font-size:clamp(42px,10vw,60px)}.cctv-page .cctv-hero{padding-block:35px}.cctv-hero-visual{border-radius:4px 26px 4px 4px}.cctv-hero-visual figcaption{position:static;padding:12px 16px}.cctv-strip{font-size:10px;display:grid;grid-template-columns:1fr 1fr}.cctv-page .cctv-quote{gap:16px}.cctv-fields{grid-template-columns:1fr;gap:16px}.cctv-page .actions .btn{width:100%}.cctv-page .section{padding-block:48px}.cctv-page .cctv-dark,.cctv-page .cctv-quote{padding:24px 18px}.cctv-nav-links{gap:15px}}
+@media(max-width:580px){.cctv-pair{grid-template-columns:1fr}.cctv-page .cctv-nav{top:60px}.cctv-nav>.wrap{padding-inline:4%}.cctv-page h1{font-size:clamp(42px,10vw,60px)}.cctv-page .cctv-hero{padding-block:35px}.cctv-hero-visual{border-radius:4px 26px 4px 4px}.cctv-strip{font-size:10px;display:grid;grid-template-columns:1fr 1fr}.cctv-page .cctv-quote{gap:16px}.cctv-fields{grid-template-columns:1fr;gap:16px}.cctv-page .actions .btn{width:100%}.cctv-page .section{padding-block:48px}.cctv-page .cctv-dark,.cctv-page .cctv-quote{padding:24px 18px}.cctv-nav-links{gap:15px}}
 @media(prefers-reduced-motion:reduce){.cctv-page *{scroll-behavior:auto!important;transition:none!important}}
