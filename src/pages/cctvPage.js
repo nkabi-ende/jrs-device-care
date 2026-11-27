@@ -10,11 +10,16 @@ export function initializeCctv(root) {
   const email = root.querySelector("#cctvEmail");
   const property = root.querySelector("#cctvProperty");
   const count = root.querySelector("#cctvCount");
+  const channels = root.querySelector("#cctvChannels");
   const service = root.querySelector("#cctvService");
   const listeners = [];
   for (const link of root.querySelectorAll("[data-cctv-topic], [data-cctv-count]")) {
     const select = () => {
-      if (link.dataset.cctvCount) count.value = link.dataset.cctvCount;
+      if (link.dataset.cctvCount) {
+        count.value = link.dataset.cctvCount;
+        channels.value = link.dataset.cctvChannels ?? "";
+        service.value = "Install my existing CCTV kit";
+      }
       if (link.dataset.cctvTopic === "Residential CCTV installation") property.value = "Residential";
       if (link.dataset.cctvTopic === "Commercial CCTV installation") property.value = "Business / commercial";
       if (link.dataset.cctvTopic === "Install my existing CCTV kit") service.value = "Install my existing CCTV kit";

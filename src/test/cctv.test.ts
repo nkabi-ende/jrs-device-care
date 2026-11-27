@@ -24,8 +24,7 @@ describe("CCTV service page", () => {
     form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
     expect(open).not.toHaveBeenCalled();
     document.querySelector<HTMLAnchorElement>('[data-cctv-topic="Residential CCTV installation"]')!.click();
-    document.querySelector<HTMLAnchorElement>('[data-cctv-count="8 cameras"]')!.click();
-    document.querySelector<HTMLAnchorElement>('[data-cctv-topic="Install my existing CCTV kit"]')!.click();
+    document.querySelector<HTMLAnchorElement>('[data-cctv-count="8 cameras"][data-cctv-channels="4 channels"]')!.click();
     const set = (id: string, value: string) => { document.querySelector<HTMLInputElement | HTMLSelectElement>("#" + id)!.value = value; };
     set("cctvName", "Test Customer");
     set("cctvPhone", "0710000000");
@@ -36,6 +35,7 @@ describe("CCTV service page", () => {
     expect(url.hostname).toBe("wa.me");
     expect(url.searchParams.get("text")).toContain("Property: Residential");
     expect(url.searchParams.get("text")).toContain("Camera count: 8 cameras");
+    expect(url.searchParams.get("text")).toContain("Recorder channels: 4 channels");
     expect(url.searchParams.get("text")).toContain("Service: Install my existing CCTV kit");
     dispose?.();
     expect(form.hidden).toBe(true);
