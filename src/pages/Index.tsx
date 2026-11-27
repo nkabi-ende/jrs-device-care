@@ -16,7 +16,13 @@ import { initializeLanding } from "./landing.js";
 import { initializeIndustrySlideshow } from "./businessIndustries.js";
 import { initializeSiteMenu, renderLandingHeader } from "../components/siteHeader.js";
 
+import cctvMeta from "./cctvMeta.json";
+import cctvHtml from "./cctv.html?raw";
+import cctvCss from "./cctv.css?raw";
+import { renderCctvPage, initializeCctv, cctvSchema } from "./cctvPage.js";
+
 const pages = {
+  cctv: { ...cctvMeta, html: renderCctvPage(siteChrome, cctvCss, cctvHtml) },
   ...landingPages,
   home: { ...landingPages.home, html: landingPages.home.html.replace("<!-- home-hero -->", homeHero) },
   academy: { ...landingPages.academy, html: landingPages.academy.html.replace("<!-- academy-courses -->", renderAcademyCourses()).replace("<!-- academy-workshop -->", academyWorkshop) },
@@ -33,11 +39,13 @@ export default function Index({ page = "home" }: { page?: PageName }) {
   const root = useRef<HTMLDivElement>(null);
   const html = renderLandingHeader(content.html, path);
   useEffect(() => {
-    if (page !== "franchise") initializeLanding();
+    if (page !== "franchise" && page !== "cctv") initializeLanding();
+    const disposeCctv = page === "cctv" ? initializeCctv(root.current) : undefined;
     const disposeProspectus = page === "academy" ? initializeProspectus() : undefined;
     const disposeMenu = initializeSiteMenu(root.current);
     const disposeSlideshow = page === "corporate" ? initializeIndustrySlideshow(root.current) : undefined;
     return () => {
+      disposeCctv?.();
       disposeProspectus?.();
       disposeMenu?.();
       disposeSlideshow?.();
@@ -45,6 +53,7 @@ export default function Index({ page = "home" }: { page?: PageName }) {
   }, [page]);
   return <>
     <Helmet {...getPageHead(content, path)}>
+      {page === "cctv" && <script type="application/ld+json">{JSON.stringify(cctvSchema("https://jrsdevicecare.co.za"))}</script>}
       {page === "academy" && <script type="application/ld+json">{JSON.stringify(academyCourseSchema())}</script>}
     </Helmet>
     <div ref={root} className="jrs-home" dangerouslySetInnerHTML={{ __html: html }} />

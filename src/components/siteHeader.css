@@ -163,7 +163,7 @@
   outline-offset: 2px;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   .jrs-home .site-header__bar { gap: 8px; }
   .jrs-home .site-header__desktop { display: none; }
   .jrs-home .site-header__top-booking {

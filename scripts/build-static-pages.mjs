@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { academyCourseSchema, renderAcademyCourses } from '../src/pages/academyCourses.js';
+import { renderCctvPage, cctvSchema } from '../src/pages/cctvPage.js';
 import { renderFranchisePage } from '../src/pages/franchisePage.js';
 import { renderLandingHeader } from '../src/components/siteHeader.js';
 
@@ -20,8 +21,9 @@ pages.franchise = {
     readText('src/pages/franchise.html'),
   ),
 };
+pages.cctv = { ...readJson('src/pages/cctvMeta.json'), html: renderCctvPage(readJson('src/components/siteChrome.json'), readText('src/pages/cctv.css'), readText('src/pages/cctv.html')) };
 const shell = readFileSync('dist/index.html','utf8');
-const business={'@context':'https://schema.org','@graph':[{'@type':['LocalBusiness','ElectronicsStore'],'@id':origin+'/#business',name:'JRs Device Care',alternateName:"Junior's Device Care",url:origin+'/',logo:origin+'/jrs-logo.jpeg',image:origin+'/jrs-logo.jpeg',telephone:'+27716865256',email:'enquiries@jrsdevicecare.co.za',description:'Phone, tablet, laptop and electronics repair technicians in Newlands West, Durban, offering repairs, training, business servicing and second-hand devices.',address:{'@type':'PostalAddress',addressLocality:'Newlands West',addressRegion:'KwaZulu-Natal',addressCountry:'ZA'},areaServed:[{'@type':'City',name:'Durban'},{'@type':'Place',name:'Newlands West'},{'@type':'AdministrativeArea',name:'KwaZulu-Natal'}],hasOfferCatalog:{'@type':'OfferCatalog',name:'Device Care Services',itemListElement:[{'@type':'OfferCatalog',name:'Phone, tablet, laptop and electronics repairs',url:origin+'/repairs/'},{'@type':'OfferCatalog',name:'Device repair technician training',url:origin+'/academy/'},{'@type':'OfferCatalog',name:'Corporate device servicing',url:origin+'/corporate/'},{'@type':'OfferCatalog',name:'Second-hand devices',url:origin+'/shop/'}]}},{'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'JRs Device Care',publisher:{'@id':origin+'/#business'},inLanguage:'en-ZA'}]};
+const business={'@context':'https://schema.org','@graph':[{'@type':['LocalBusiness','ElectronicsStore'],'@id':origin+'/#business',name:'JRs Device Care',alternateName:"Junior's Device Care",url:origin+'/',logo:origin+'/jrs-logo.jpeg',image:origin+'/jrs-logo.jpeg',telephone:'+27716865256',email:'enquiries@jrsdevicecare.co.za',description:'Phone, tablet, laptop and electronics repair technicians in Newlands West, Durban, offering repairs, training, business servicing and second-hand devices.',address:{'@type':'PostalAddress',addressLocality:'Newlands West',addressRegion:'KwaZulu-Natal',addressCountry:'ZA'},areaServed:[{'@type':'City',name:'Durban'},{'@type':'Place',name:'Newlands West'},{'@type':'AdministrativeArea',name:'KwaZulu-Natal'}],hasOfferCatalog:{'@type':'OfferCatalog',name:'Device Care Services',itemListElement:[{'@type':'OfferCatalog',name:'Phone, tablet, laptop and electronics repairs',url:origin+'/repairs/'},{'@type':'OfferCatalog',name:'Device repair technician training',url:origin+'/academy/'},{'@type':'OfferCatalog',name:'Corporate device servicing',url:origin+'/corporate/'},{'@type':'OfferCatalog',name:'CCTV camera installation',url:origin+'/cctv/'},{'@type':'OfferCatalog',name:'Second-hand devices',url:origin+'/shop/'}]}},{'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'JRs Device Care',publisher:{'@id':origin+'/#business'},inLanguage:'en-ZA'}]};
 function getPageSchema(key, page, path) {
   if (key === 'home') return business;
   const url = origin + path;
@@ -36,6 +38,7 @@ function getPageSchema(key, page, path) {
     about: { '@id': origin + '/#business' },
   };
   if (key === 'academy') return { '@context': 'https://schema.org', '@graph': [webPage, ...academyCourseSchema()['@graph']] };
+  if (key === 'cctv') return { '@context': 'https://schema.org', '@graph': [webPage, cctvSchema(origin)] };
   if (key !== 'franchise') return { '@context': 'https://schema.org', ...webPage };
 
   const breadcrumb = {

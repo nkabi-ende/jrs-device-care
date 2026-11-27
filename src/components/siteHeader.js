@@ -4,6 +4,7 @@ const destinations = [
   ["/shop", "Shop devices"],
   ["/academy", "Academy"],
   ["/corporate", "For business"],
+  ["/cctv", "CCTV"],
   ["/franchise", "For entrepreneurs"],
   ["/contact", "Contact"],
 ];
@@ -15,7 +16,9 @@ export function renderSiteHeader(path, { bookingHref = "/contact/", opensEnquiry
     return `<a href="${href}/"${active ? ' aria-current="page"' : ""}>${label}</a>`;
   };
   const links = destinations.map(link).join("");
-  const booking = `href="${bookingHref}"${opensEnquiry ? ' data-enquire="Repair enquiry"' : ""}`;
+  const isCctv = currentPath === "/cctv";
+  const booking = isCctv ? 'href="#cctv-quote"' : `href="${bookingHref}"${opensEnquiry ? ' data-enquire="Repair enquiry"' : ""}`;
+  const bookingLabel = isCctv ? "Get a CCTV quote" : "Book a repair";
 
   return `<header class="site-header">
     <div class="site-header__bar">
@@ -24,7 +27,7 @@ export function renderSiteHeader(path, { bookingHref = "/contact/", opensEnquiry
         <span>JRs <small>DEVICE CARE</small></span>
       </a>
       <nav class="site-header__desktop" aria-label="Main navigation">${links}</nav>
-      <a class="site-header__booking site-header__top-booking" ${booking}>Book a repair</a>
+      <a class="site-header__booking site-header__top-booking" ${booking}>${bookingLabel}</a>
       <details class="site-header__mobile">
         <summary class="site-header__toggle">
           <svg class="site-header__menu-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -34,7 +37,7 @@ export function renderSiteHeader(path, { bookingHref = "/contact/", opensEnquiry
         </summary>
         <nav class="site-header__panel" aria-label="Main navigation">
           ${links}
-          <a class="site-header__booking site-header__panel-booking" ${booking}>Book a repair</a>
+          <a class="site-header__booking site-header__panel-booking" ${booking}>${bookingLabel}</a>
         </nav>
       </details>
     </div>

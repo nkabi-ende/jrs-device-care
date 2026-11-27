@@ -3,7 +3,7 @@ export const siteOrigin = "https://jrsdevicecare.co.za";
 export function getPageHead(page, path, type = "website") {
   const url = siteOrigin + path;
   const image = new URL(page.image, siteOrigin).href;
-  const brandedCard = page.image.startsWith("/share/");
+  const brandedCard = page.image.startsWith("/share/") || page.image === "/service-media/cctv-share.png";
   const properties = {
     "og:type": type,
     "og:site_name": "JRs Device Care",
@@ -13,7 +13,7 @@ export function getPageHead(page, path, type = "website") {
     "og:description": page.description,
     "og:image": image,
     ...(brandedCard && {
-      "og:image:type": "image/jpeg",
+      "og:image:type": page.image.endsWith(".png") ? "image/png" : "image/jpeg",
       "og:image:width": "1200",
       "og:image:height": "630",
     }),
